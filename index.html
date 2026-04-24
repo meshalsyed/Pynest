@@ -848,86 +848,47 @@
 
   function validateEmail(v) { return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v); }
 
-  const form       = document.getElementById('access-form');
-const submitBtn  = document.getElementById('submit-btn');
-const successMsg = document.getElementById('success-msg');
-
-const nameInput   = document.getElementById('name');
-const emailInput  = document.getElementById('email');
-const mobileInput = document.getElementById('mobile');
-
-const nameErr   = document.getElementById('name-error');
-const emailErr  = document.getElementById('email-error');
-const mobileErr = document.getElementById('mobile-error');
-
-function validateEmail(v) {
-  return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v);
-}
-
-form.addEventListener('submit', (e) => {
+  form.addEventListener('submit', (e) => {
   e.preventDefault();
 
   let valid = true;
 
-  // reset errors
   nameErr.classList.remove('show');
   emailErr.classList.remove('show');
-  mobileErr.classList.remove('show');
 
-  const name = nameInput.value.trim();
-  const email = emailInput.value.trim();
-  const mobile = mobileInput.value.trim();
-
-  if (!name) {
+  if (!nameInput.value.trim()) {
     nameErr.classList.add('show');
     valid = false;
   }
 
-  if (!validateEmail(email)) {
+  if (!validateEmail(emailInput.value.trim())) {
     emailErr.classList.add('show');
-    valid = false;
-  }
-
-  const mobilePattern = /^[6-9]\d{9}$/;
-  if (!mobilePattern.test(mobile)) {
-    mobileErr.classList.add('show');
     valid = false;
   }
 
   if (!valid) return;
 
-  // UI loading state
-  submitBtn.disabled = true;
-  submitBtn.innerText = "Sending...";
+  const name = nameInput.value.trim();
+  const email = emailInput.value.trim();
 
-  const message = `✨ *Pynest Luxury Villas Inquiry* ✨
+  // WhatsApp message
+  const message = `Hi Pynest, I'm interested in your luxury villas in Pondicherry.
 
-👤 Name: ${name}
-📧 Email: ${email}
-📱 Mobile: +91 ${mobile}
+Name: ${name}
+Email: ${email}
 
-🏝 Interest: Luxury Villas & Private Pool Stays in Pondicherry
+Please share early access details. Thank you!`;
 
-💬 Message:
-Hi Pynest, I would like early access and booking details for your premium villas.
-
-🙏 Looking forward to your response.`;
-
+  // Encode message for URL
   const encodedMessage = encodeURIComponent(message);
+
+  // Your WhatsApp number
   const phoneNumber = "916382186266";
 
+  // Redirect to WhatsApp
   const whatsappURL = `https://wa.me/${phoneNumber}?text=${encodedMessage}`;
 
-  // show success UI
-  setTimeout(() => {
-    window.open(whatsappURL, '_blank');
-
-    successMsg.classList.add('show');
-    form.style.display = "none";
-
-    submitBtn.disabled = false;
-    submitBtn.innerText = "Reserve My Spot";
-  }, 800);
+  window.open(whatsappURL, '_blank');
 });
 
   // ── Smooth anchor scroll ───────────────────────────────
