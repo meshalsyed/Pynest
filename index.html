@@ -900,13 +900,40 @@
   });
 
   // ── Smooth anchor scroll ───────────────────────────────
-  document.querySelectorAll('a[href^="#"]').forEach(a => {
-    a.addEventListener('click', e => {
-      const id = a.getAttribute('href').slice(1);
-      const el = document.getElementById(id);
-      if (el) { e.preventDefault(); el.scrollIntoView({ behavior: 'smooth', block: 'start' }); }
-    });
+  form.addEventListener('submit', (e) => {
+  e.preventDefault();
+
+  let valid = true;
+
+  nameErr.classList.remove('show');
+  emailErr.classList.remove('show');
+
+  if (!nameInput.value.trim()) {
+    nameErr.classList.add('show');
+    valid = false;
+  }
+
+  if (!validateEmail(emailInput.value.trim())) {
+    emailErr.classList.add('show');
+    valid = false;
+  }
+
+  if (!valid) return;
+
+  const formData = new FormData(form);
+
+  fetch("/", {
+    method: "POST",
+    body: formData
+  })
+  .then(() => {
+    form.style.display = 'none';
+    successMsg.classList.add('show');
+  })
+  .catch(() => {
+    alert("Something went wrong. Try again.");
   });
+});
 </script>
 </body>
 </html>
