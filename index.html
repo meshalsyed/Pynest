@@ -855,37 +855,49 @@
 
   nameErr.classList.remove('show');
   emailErr.classList.remove('show');
+  mobileErr.classList.remove('show');
 
-  if (!nameInput.value.trim()) {
+  const name = nameInput.value.trim();
+  const email = emailInput.value.trim();
+  const mobile = mobileInput.value.trim();
+
+  if (!name) {
     nameErr.classList.add('show');
     valid = false;
   }
 
-  if (!validateEmail(emailInput.value.trim())) {
+  if (!validateEmail(email)) {
     emailErr.classList.add('show');
+    valid = false;
+  }
+
+  // Indian mobile validation (10 digits, starts 6-9)
+  const mobilePattern = /^[6-9]\d{9}$/;
+  if (!mobilePattern.test(mobile)) {
+    mobileErr.classList.add('show');
     valid = false;
   }
 
   if (!valid) return;
 
-  const name = nameInput.value.trim();
-  const email = emailInput.value.trim();
+  // WhatsApp premium message
+  const message = `✨ *Pynest Luxury Villas Inquiry* ✨
 
-  // WhatsApp message
-  const message = `Hi Pynest, I'm interested in your luxury villas in Pondicherry.
+👤 Name: ${name}
+📧 Email: ${email}
+📱 Mobile: +91 ${mobile}
 
-Name: ${name}
-Email: ${email}
+🏝 Interested in: Luxury Villas & Private Pool Stays in Pondicherry
 
-Please share early access details. Thank you!`;
+💬 Message:
+I would like to get early access and booking details for your premium villas.
 
-  // Encode message for URL
+🙏 Looking forward to your response.`;
+
   const encodedMessage = encodeURIComponent(message);
 
-  // Your WhatsApp number
   const phoneNumber = "916382186266";
 
-  // Redirect to WhatsApp
   const whatsappURL = `https://wa.me/${phoneNumber}?text=${encodedMessage}`;
 
   window.open(whatsappURL, '_blank');
