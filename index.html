@@ -838,28 +838,27 @@
   document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
 
   // ── Form ───────────────────────────────────────────────
-  const form        = document.getElementById('access-form');
-  const submitBtn   = document.getElementById('submit-btn');
-  const successMsg  = document.getElementById('success-msg');
-  
-  const nameInput   = document.getElementById('name');
-  const emailInput  = document.getElementById('email');
-  const mobileInput = document.getElementById('mobile');
-  
-  const nameErr     = document.getElementById('name-error');
-  const emailErr    = document.getElementById('email-error');
-  const mobileErr   = document.getElementById('mobile-error');
+const form        = document.getElementById('access-form');
+const submitBtn   = document.getElementById('submit-btn');
+const successMsg  = document.getElementById('success-msg');
 
+const nameInput   = document.getElementById('name');
+const emailInput  = document.getElementById('email');
+const mobileInput = document.getElementById('mobile');
 
-  
-  function validateEmail(v) {
-    return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v);
-  }
-  function validateMobile(v) {
-    return /^[6-9][0-9]{9}$/.test(v);
-  }
+const nameErr     = document.getElementById('name-error');
+const emailErr    = document.getElementById('email-error');
+const mobileErr   = document.getElementById('mobile-error');
 
-  form.addEventListener('submit', (e) => {
+function validateEmail(v) {
+  return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v);
+}
+
+function validateMobile(v) {
+  return /^[6-9][0-9]{9}$/.test(v);
+}
+
+form.addEventListener('submit', (e) => {
   e.preventDefault();
 
   let valid = true;
