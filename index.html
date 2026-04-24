@@ -848,11 +848,28 @@
 
   function validateEmail(v) { return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v); }
 
-  form.addEventListener('submit', (e) => {
+  const form       = document.getElementById('access-form');
+const submitBtn  = document.getElementById('submit-btn');
+const successMsg = document.getElementById('success-msg');
+
+const nameInput   = document.getElementById('name');
+const emailInput  = document.getElementById('email');
+const mobileInput = document.getElementById('mobile');
+
+const nameErr   = document.getElementById('name-error');
+const emailErr  = document.getElementById('email-error');
+const mobileErr = document.getElementById('mobile-error');
+
+function validateEmail(v) {
+  return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v);
+}
+
+form.addEventListener('submit', (e) => {
   e.preventDefault();
 
   let valid = true;
 
+  // reset errors
   nameErr.classList.remove('show');
   emailErr.classList.remove('show');
   mobileErr.classList.remove('show');
@@ -871,7 +888,6 @@
     valid = false;
   }
 
-  // Indian mobile validation (10 digits, starts 6-9)
   const mobilePattern = /^[6-9]\d{9}$/;
   if (!mobilePattern.test(mobile)) {
     mobileErr.classList.add('show');
@@ -880,27 +896,38 @@
 
   if (!valid) return;
 
-  // WhatsApp premium message
+  // UI loading state
+  submitBtn.disabled = true;
+  submitBtn.innerText = "Sending...";
+
   const message = `✨ *Pynest Luxury Villas Inquiry* ✨
 
 👤 Name: ${name}
 📧 Email: ${email}
 📱 Mobile: +91 ${mobile}
 
-🏝 Interested in: Luxury Villas & Private Pool Stays in Pondicherry
+🏝 Interest: Luxury Villas & Private Pool Stays in Pondicherry
 
 💬 Message:
-I would like to get early access and booking details for your premium villas.
+Hi Pynest, I would like early access and booking details for your premium villas.
 
 🙏 Looking forward to your response.`;
 
   const encodedMessage = encodeURIComponent(message);
-
   const phoneNumber = "916382186266";
 
   const whatsappURL = `https://wa.me/${phoneNumber}?text=${encodedMessage}`;
 
-  window.open(whatsappURL, '_blank');
+  // show success UI
+  setTimeout(() => {
+    window.open(whatsappURL, '_blank');
+
+    successMsg.classList.add('show');
+    form.style.display = "none";
+
+    submitBtn.disabled = false;
+    submitBtn.innerText = "Reserve My Spot";
+  }, 800);
 });
 
   // ── Smooth anchor scroll ───────────────────────────────
