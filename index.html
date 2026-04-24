@@ -826,50 +826,48 @@
 
   function validateEmail(v) { return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v); }
 
-  form.addEventListener('submit', async (e) => {
-    e.preventDefault();
-    let valid = true;
+  form.addEventListener('submit', (e) => {
+  e.preventDefault();
 
-    nameErr.classList.remove('show');
-    emailErr.classList.remove('show');
+  let valid = true;
 
-    if (!nameInput.value.trim()) { nameErr.classList.add('show'); valid = false; }
-    if (!validateEmail(emailInput.value.trim())) { emailErr.classList.add('show'); valid = false; }
-    if (!valid) return;
+  nameErr.classList.remove('show');
+  emailErr.classList.remove('show');
 
-    submitBtn.disabled = true;
-    submitBtn.textContent = 'Securing your spot…';
+  if (!nameInput.value.trim()) {
+    nameErr.classList.add('show');
+    valid = false;
+  }
 
-    // ── PHP mail() submission ──────────────────────────
-    // Sends POST to submit.php in the same directory.
-    // Edit the TO_EMAIL constant inside submit.php to receive submissions.
-    try {
-      const formData = new FormData();
-      formData.append('name',  nameInput.value.trim());
-      formData.append('email', emailInput.value.trim());
+  if (!validateEmail(emailInput.value.trim())) {
+    emailErr.classList.add('show');
+    valid = false;
+  }
 
-      const res  = await fetch('submit.php', { method: 'POST', body: formData });
-      const json = await res.json();
+  if (!valid) return;
 
-      if (json.success) {
-        form.style.display = 'none';
-        successMsg.classList.add('show');
-      } else {
-        throw new Error(json.message || 'Server error');
-      }
-    } catch {
-      submitBtn.disabled    = false;
-      submitBtn.textContent = 'Reserve My Spot';
-      const existingErr = document.getElementById('server-error');
-      if (!existingErr) {
-        const errEl = document.createElement('p');
-        errEl.id = 'server-error';
-        errEl.style.cssText = 'color:#E8A87C;font-size:.8rem;margin-top:14px;text-align:center;';
-        errEl.textContent   = 'Something went wrong. Please try again or reach us on WhatsApp.';
-        form.appendChild(errEl);
-      }
-    }
-  });
+  const name = nameInput.value.trim();
+  const email = emailInput.value.trim();
+
+  // WhatsApp message
+  const message = `Hi Pynest, I'm interested in your luxury villas in Pondicherry.
+
+Name: ${name}
+Email: ${email}
+
+Please share early access details. Thank you!`;
+
+  // Encode message for URL
+  const encodedMessage = encodeURIComponent(message);
+
+  // Your WhatsApp number
+  const phoneNumber = "916382186266";
+
+  // Redirect to WhatsApp
+  const whatsappURL = `https://wa.me/${phoneNumber}?text=${encodedMessage}`;
+
+  window.open(whatsappURL, '_blank');
+});
 
   // ── Smooth anchor scroll ───────────────────────────────
   document.querySelectorAll('a[href^="#"]').forEach(a => {
