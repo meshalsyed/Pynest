@@ -838,31 +838,52 @@
   document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
 
   // ── Form ───────────────────────────────────────────────
-  const form       = document.getElementById('access-form');
-  const submitBtn  = document.getElementById('submit-btn');
-  const successMsg = document.getElementById('success-msg');
-  const nameInput  = document.getElementById('name');
-  const emailInput = document.getElementById('email');
-  const nameErr    = document.getElementById('name-error');
-  const emailErr   = document.getElementById('email-error');
+  const form        = document.getElementById('access-form');
+  const submitBtn   = document.getElementById('submit-btn');
+  const successMsg  = document.getElementById('success-msg');
+  
+  const nameInput   = document.getElementById('name');
+  const emailInput  = document.getElementById('email');
+  const mobileInput = document.getElementById('mobile');
+  
+  const nameErr     = document.getElementById('name-error');
+  const emailErr    = document.getElementById('email-error');
+  const mobileErr   = document.getElementById('mobile-error');
 
-  function validateEmail(v) { return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v); }
+
+  
+  function validateEmail(v) {
+    return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v);
+  }
+  function validateMobile(v) {
+    return /^[6-9][0-9]{9}$/.test(v);
+  }
 
   form.addEventListener('submit', (e) => {
   e.preventDefault();
 
   let valid = true;
 
+  // Reset errors
   nameErr.classList.remove('show');
   emailErr.classList.remove('show');
+  mobileErr.classList.remove('show');
 
+  // Name validation
   if (!nameInput.value.trim()) {
     nameErr.classList.add('show');
     valid = false;
   }
 
+  // Email validation
   if (!validateEmail(emailInput.value.trim())) {
     emailErr.classList.add('show');
+    valid = false;
+  }
+
+  // Mobile validation
+  if (!validateMobile(mobileInput.value.trim())) {
+    mobileErr.classList.add('show');
     valid = false;
   }
 
@@ -870,16 +891,17 @@
 
   const name = nameInput.value.trim();
   const email = emailInput.value.trim();
+  const mobile = mobileInput.value.trim();
 
-  // WhatsApp message
+  // WhatsApp message with Mobile Number included
   const message = `Hi Pynest, I'm interested in your luxury villas in Pondicherry.
 
 Name: ${name}
 Email: ${email}
+Mobile: ${mobile}
 
 Please share early access details. Thank you!`;
 
-  // Encode message for URL
   const encodedMessage = encodeURIComponent(message);
 
   // Your WhatsApp number
@@ -890,7 +912,6 @@ Please share early access details. Thank you!`;
 
   window.open(whatsappURL, '_blank');
 });
-
   // ── Smooth anchor scroll ───────────────────────────────
   document.querySelectorAll('a[href^="#"]').forEach(a => {
     a.addEventListener('click', e => {
