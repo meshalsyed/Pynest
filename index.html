@@ -907,7 +907,7 @@ window.addEventListener('load',()=>{
 
 // ── Nav scroll ─────────────────────────────────────────────
 const nav=document.getElementById('nav');
-window.addEventListener('scroll',()=>nav.classList.toggle('solid',scrollY>60),{passive:true});
+window.addEventListener('scroll',()=>nav.classList.toggle('solid',scrollY>10),{passive:true});
 
 // ── Scroll Reveal ──────────────────────────────────────────
 const ro=new IntersectionObserver(entries=>{
