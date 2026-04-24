@@ -9,7 +9,7 @@
  */
 
 define('TO_EMAIL',   'meshalsyed786@gmail.com');       // ← your receiving email
-define('FROM_EMAIL', 'noreply@pynest.in');    // ← sender shown in inbox (must be your domain)
+define('FROM_EMAIL', 'meshalsyed786@gmail.com');    // ← sender shown in inbox (must be your domain)
 define('SITE_NAME',  'Pynest');
 
 /* ── CORS / headers ─────────────────────────────────────── */
