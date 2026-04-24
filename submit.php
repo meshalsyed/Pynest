@@ -8,7 +8,7 @@
  * ✏️  Change TO_EMAIL to your real inbox below.
  */
 
-define('TO_EMAIL',   'info@pynest.in');       // ← your receiving email
+define('TO_EMAIL',   'meshalsyed786@gmail.com');       // ← your receiving email
 define('FROM_EMAIL', 'noreply@pynest.in');    // ← sender shown in inbox (must be your domain)
 define('SITE_NAME',  'Pynest');
 
