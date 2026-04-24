@@ -730,18 +730,40 @@
 
       <div class="glass-form fade-up" role="region" aria-label="Early access form">
         <form id="access-form" novalidate>
-          <div class="form-group">
-            <label for="name">Your Name</label>
-            <input type="text" id="name" name="name" placeholder="Firstname Lastname" autocomplete="name" required aria-required="true" />
-            <p class="form-error" id="name-error" role="alert">Please enter your name.</p>
-          </div>
-          <div class="form-group">
-            <label for="email">Email Address</label>
-            <input type="email" id="email" name="email" placeholder="you@example.com" autocomplete="email" required aria-required="true" />
-            <p class="form-error" id="email-error" role="alert">Please enter a valid email address.</p>
-          </div>
-          <button type="submit" class="btn-submit" id="submit-btn">Reserve My Spot</button>
-        </form>
+
+  <div class="form-group">
+    <label for="name">Your Name</label>
+    <input type="text" id="name" name="name" placeholder="Firstname Lastname" autocomplete="name" required aria-required="true" />
+    <p class="form-error" id="name-error" role="alert">Please enter your name.</p>
+  </div>
+
+  <div class="form-group">
+    <label for="email">Email Address</label>
+    <input type="email" id="email" name="email" placeholder="you@example.com" autocomplete="email" required aria-required="true" />
+    <p class="form-error" id="email-error" role="alert">Please enter a valid email address.</p>
+  </div>
+
+  <!-- Mobile Number Field -->
+  <div class="form-group">
+    <label for="mobile">Mobile Number (India)</label>
+    <input 
+      type="tel" 
+      id="mobile" 
+      name="mobile" 
+      placeholder="10-digit mobile number"
+      pattern="[6-9]{1}[0-9]{9}" 
+      maxlength="10"
+      required 
+      aria-required="true"
+    />
+    <p class="form-error" id="mobile-error" role="alert">
+      Please enter a valid 10-digit Indian mobile number.
+    </p>
+  </div>
+
+  <button type="submit" class="btn-submit" id="submit-btn">Reserve My Spot</button>
+
+</form>
         <div class="success-msg" id="success-msg" role="status" aria-live="polite">
           <div class="success-icon" aria-hidden="true">🌿</div>
           <h3>You're on the list!</h3>
