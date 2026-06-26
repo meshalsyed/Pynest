@@ -413,30 +413,87 @@ footer{background:#0D1315;padding:72px 5vw 36px;border-top:1px solid rgba(212,17
     <div class="hero-eyebrow" id="he"><span></span>Coming Soon · pynest.in<span></span></div>
     <h1 class="hero-h1" id="hh">Where <em>Stillness</em><br><strong>Becomes Luxury</strong></h1>
     <p class="hero-desc" id="hd">Curated private villas, heritage homestays and beachside retreats — in the soul of Pondicherry. An experience unlike anything you've known.</p>
+<div class="booking-bar" id="hbb">
+  <div class="bb-field">
+    <span class="bb-label">Check In</span>
+    <input type="date" id="bb-checkin" class="bb-input" min="">
+    <span class="bb-sub">Add arrival date</span>
+  </div>
+  <div class="bb-field">
+    <span class="bb-label">Check Out</span>
+    <input type="date" id="bb-checkout" class="bb-input" min="">
+    <span class="bb-sub">Add departure date</span>
+  </div>
+  <div class="bb-field">
+    <span class="bb-label">Guests</span>
+    <select id="bb-guests" class="bb-input">
+      <option value="">Select Guests</option>
+      <option value="1 Adult">1 Adult</option>
+      <option value="2 Adults">2 Adults</option>
+      <option value="3 Adults">3 Adults</option>
+      <option value="4 Adults">4 Adults</option>
+      <option value="5 Adults">5 Adults</option>
+      <option value="6+ Adults">6+ Adults</option>
+    </select>
+    <span class="bb-sub">Add guests</span>
+  </div>
+  <div class="bb-field">
+    <span class="bb-label">Villa Type</span>
+    <select id="bb-type" class="bb-input">
+      <option value="">All Types</option>
+      <option value="Pool Villa">Pool Villa</option>
+      <option value="Beachfront">Beachfront</option>
+      <option value="Heritage">Heritage</option>
+      <option value="Hut House">Hut House</option>
+      <option value="Boutique Homestay">Boutique Homestay</option>
+    </select>
+    <span class="bb-sub">Pool · Beachfront · Heritage</span>
+  </div>
+  <button class="bb-btn" onclick="sendBookingWhatsApp()">Notify Me →</button>
+</div>
 
-    <div class="booking-bar" id="hbb">
-      <div class="bb-field">
-        <span class="bb-label">Check In</span>
-        <span class="bb-val">Select Date</span>
-        <span class="bb-sub">Add arrival date</span>
-      </div>
-      <div class="bb-field">
-        <span class="bb-label">Check Out</span>
-        <span class="bb-val">Select Date</span>
-        <span class="bb-sub">Add departure date</span>
-      </div>
-      <div class="bb-field">
-        <span class="bb-label">Guests</span>
-        <span class="bb-val">2 Adults</span>
-        <span class="bb-sub">Add guests</span>
-      </div>
-      <div class="bb-field">
-        <span class="bb-label">Villa Type</span>
-        <span class="bb-val">All Types</span>
-        <span class="bb-sub">Pool · Beachfront · Heritage</span>
-      </div>
-      <button class="bb-btn" onclick="document.getElementById('access').scrollIntoView({behavior:'smooth'})">Notify Me →</button>
-    </div>
+<script>
+  // Set today as minimum date
+  const today = new Date().toISOString().split('T')[0];
+  document.getElementById('bb-checkin').min = today;
+  document.getElementById('bb-checkout').min = today;
+
+  // Update checkout min when checkin changes
+  document.getElementById('bb-checkin').addEventListener('change', function() {
+    document.getElementById('bb-checkout').min = this.value;
+    if (document.getElementById('bb-checkout').value < this.value) {
+      document.getElementById('bb-checkout').value = '';
+    }
+  });
+
+  function sendBookingWhatsApp() {
+    const checkin  = document.getElementById('bb-checkin').value;
+    const checkout = document.getElementById('bb-checkout').value;
+    const guests   = document.getElementById('bb-guests').value;
+    const type     = document.getElementById('bb-type').value;
+
+    if (!checkin || !checkout || !guests || !type) {
+      alert('Please fill in all fields before continuing.');
+      return;
+    }
+
+    // Format dates nicely
+    const formatDate = (d) => {
+      const date = new Date(d);
+      return date.toLocaleDateString('en-IN', { day: 'numeric', month: 'long', year: 'numeric' });
+    };
+
+    const message = `Hi Pynest! I'd like to book a villa.\n\n` +
+                    `📅 Check In: ${formatDate(checkin)}\n` +
+                    `📅 Check Out: ${formatDate(checkout)}\n` +
+                    `👥 Guests: ${guests}\n` +
+                    `🏡 Villa Type: ${type}\n\n` +
+                    `Please share availability and details. Thank you!`;
+
+    const url = `https://wa.me/916382186266?text=${encodeURIComponent(message)}`;
+    window.open(url, '_blank');
+  }
+</script>
 
     <div class="hero-actions" id="ha">
       <a href="#access" class="btn-gold">Join Priority Waitlist ↗</a>
