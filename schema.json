@@ -1,0 +1,252 @@
+{
+  "_comment": "Standalone copy of all JSON-LD schemas embedded in index.html. Use this as a reference, or load dynamically if you migrate to a CMS/framework. Each block below corresponds to one <script type='application/ld+json'> tag in the page <head>.",
+
+  "organization": {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    "@id": "https://pynest.in/#organization",
+    "name": "Pynest",
+    "alternateName": ["Pynest Pondicherry", "Pynest Villas", "Pynest Luxury Villas"],
+    "url": "https://pynest.in",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://pynest.in/pynestlogo.png",
+      "width": 300,
+      "height": 100
+    },
+    "description": "Pynest is Pondicherry's premier luxury villa booking platform, curating private pool villas, heritage homestays, beachfront estates and boutique stays in Puducherry, India.",
+    "email": "hello@pynest.in",
+    "telephone": "+916382186266",
+    "foundingDate": "2024",
+    "areaServed": {
+      "@type": "City",
+      "name": "Pondicherry",
+      "alternateName": "Puducherry",
+      "@id": "https://www.wikidata.org/wiki/Q46107"
+    },
+    "contactPoint": [
+      {
+        "@type": "ContactPoint",
+        "telephone": "+916382186266",
+        "contactType": "customer service",
+        "contactOption": "TollFree",
+        "availableLanguage": ["English", "Tamil", "Hindi"],
+        "areaServed": "IN"
+      },
+      {
+        "@type": "ContactPoint",
+        "email": "hello@pynest.in",
+        "contactType": "reservations",
+        "availableLanguage": ["English", "Tamil"]
+      }
+    ],
+    "sameAs": [
+      "https://www.instagram.com/pynest.in",
+      "https://www.facebook.com/pynest.in",
+      "https://wa.me/916382186266"
+    ]
+  },
+
+  "lodgingBusiness": {
+    "@context": "https://schema.org",
+    "@type": ["LodgingBusiness", "LocalBusiness", "TravelAgency"],
+    "@id": "https://pynest.in/#lodgingbusiness",
+    "name": "Pynest — Luxury Villas Pondicherry",
+    "alternateName": "Pynest Puducherry",
+    "description": "Pynest curates the finest luxury villas, private pool estates, heritage homestays and beachfront retreats in Pondicherry (Puducherry). Expert concierge service, verified properties, and exclusive experiences for couples, families and corporate retreats.",
+    "url": "https://pynest.in",
+    "telephone": "+916382186266",
+    "email": "hello@pynest.in",
+    "logo": "https://pynest.in/pynestlogo.png",
+    "image": [
+      "https://pynest.in/og-image.jpg",
+      "https://pynest.in/villa1.jpg",
+      "https://pynest.in/villa2.jpg"
+    ],
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "White Town",
+      "addressLocality": "Pondicherry",
+      "addressRegion": "Puducherry",
+      "postalCode": "605001",
+      "addressCountry": "IN"
+    },
+    "geo": {
+      "@type": "GeoCoordinates",
+      "latitude": 11.9416,
+      "longitude": 79.8083
+    },
+    "openingHoursSpecification": [
+      {
+        "@type": "OpeningHoursSpecification",
+        "dayOfWeek": ["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday","Sunday"],
+        "opens": "09:00",
+        "closes": "21:00"
+      }
+    ],
+    "checkinTime": "14:00",
+    "checkoutTime": "11:00",
+    "currenciesAccepted": "INR",
+    "paymentAccepted": "Cash, Credit Card, UPI, Bank Transfer",
+    "priceRange": "₹₹₹",
+    "numberOfRooms": "50",
+    "amenityFeature": [
+      {"@type": "LocationFeatureSpecification", "name": "Private Swimming Pool", "value": true},
+      {"@type": "LocationFeatureSpecification", "name": "Beachfront Access", "value": true},
+      {"@type": "LocationFeatureSpecification", "name": "Concierge Service", "value": true},
+      {"@type": "LocationFeatureSpecification", "name": "Free Parking", "value": true},
+      {"@type": "LocationFeatureSpecification", "name": "Air Conditioning", "value": true},
+      {"@type": "LocationFeatureSpecification", "name": "Heritage Architecture", "value": true}
+    ],
+    "hasMap": "https://maps.google.com/?q=Pondicherry,India",
+    "containsPlace": [
+      {"@type": "LodgingBusiness", "name": "Lakshmi Villa", "description": "Luxury private villa in Vasantha Nagar, Puducherry"},
+      {"@type": "LodgingBusiness", "name": "Luken Bay Villa", "description": "Beachfront villa in Kuruchikuppam, Puducherry"},
+      {"@type": "LodgingBusiness", "name": "Pynest Hut House Villa", "description": "Unique hut-style villa near Anumandai, Puducherry"}
+    ],
+    "sameAs": [
+      "https://www.instagram.com/pynest.in",
+      "https://www.facebook.com/pynest.in"
+    ],
+    "aggregateRating": {
+      "@type": "AggregateRating",
+      "ratingValue": "5.0",
+      "bestRating": "5",
+      "worstRating": "1",
+      "ratingCount": "47"
+    }
+  },
+
+  "website": {
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    "@id": "https://pynest.in/#website",
+    "name": "Pynest",
+    "alternateName": "Pynest Pondicherry",
+    "url": "https://pynest.in",
+    "description": "Luxury villa booking platform for Pondicherry — curated private pool villas, heritage homestays and beachfront retreats.",
+    "inLanguage": "en-IN",
+    "publisher": { "@id": "https://pynest.in/#organization" },
+    "potentialAction": {
+      "@type": "SearchAction",
+      "target": {
+        "@type": "EntryPoint",
+        "urlTemplate": "https://pynest.in/?search={search_term_string}"
+      },
+      "query-input": "required name=search_term_string"
+    }
+  },
+
+  "webPage": {
+    "@context": "https://schema.org",
+    "@type": "WebPage",
+    "@id": "https://pynest.in/#webpage",
+    "url": "https://pynest.in/",
+    "name": "Luxury Villas in Pondicherry | Private Pool & Heritage Stays — Pynest",
+    "description": "Book luxury villas, private pool estates & heritage homestays in Pondicherry with Pynest.",
+    "isPartOf": { "@id": "https://pynest.in/#website" },
+    "about": { "@id": "https://pynest.in/#lodgingbusiness" },
+    "primaryImageOfPage": {
+      "@type": "ImageObject",
+      "url": "https://images.unsplash.com/photo-1582268611958-ebfd161ef9cf?w=1920&q=85"
+    },
+    "datePublished": "2024-01-01",
+    "dateModified": "2025-06-01",
+    "inLanguage": "en-IN",
+    "breadcrumb": {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://pynest.in/" },
+        { "@type": "ListItem", "position": 2, "name": "Luxury Villas Pondicherry", "item": "https://pynest.in/villas" },
+        { "@type": "ListItem", "position": 3, "name": "Private Pool Villas", "item": "https://pynest.in/private-pool-villas" }
+      ]
+    }
+  },
+
+  "faqPage": {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "How do I book a luxury villa in Pondicherry with Pynest?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Booking with Pynest is simple. Browse our curated villa collection, select your preferred property, and reach out via WhatsApp at +91 63821 86266 or email hello@pynest.in. Our concierge team will confirm availability and arrange everything for your arrival. You can also join our priority waitlist for first access to new listings."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "What types of villas are available in Pondicherry?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Pynest offers a curated range of luxury properties in Pondicherry including Private Pool Villas, Beachfront Villas on Serenity Beach and Promenade Beach, Heritage Villas in the French Quarter and White Town, Boutique Homestays, Hut-style Villas, and Family Villas with multiple bedrooms. All properties are personally verified by the Pynest team."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Do all Pynest villas have private swimming pools?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Many of our properties feature exclusive private pools for guests — no sharing with other guests. Our pool villas are clearly tagged in listings. We also offer beachfront villas with direct sea access. Contact our concierge team to find the perfect pool villa for your stay in Pondicherry."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Are pets allowed at Pynest villas?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Pet policies vary by property. Some of our villas are pet-friendly, particularly the standalone estate villas with large outdoor spaces. Please mention your pet details when contacting our concierge team and we will match you with a suitable pet-friendly villa in Pondicherry."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "What is the check-in and check-out time for Pynest villas?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Standard check-in time is 2:00 PM (14:00) and check-out is 11:00 AM. Early check-in and late check-out can be arranged based on availability, often at no extra charge for priority members. Please contact our concierge team in advance for special timing requests."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Are Pynest villas suitable for families?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Absolutely. Pynest has a dedicated selection of family villas in Pondicherry with multiple bedrooms, large living spaces, private pools, and safe outdoor areas. We have hosted families of up to 20 guests in our estate properties. Our concierge team can also arrange family activities, babysitting services, and child-friendly meals."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Do you provide concierge services with villa bookings?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Yes, every Pynest booking includes access to our dedicated concierge team. We arrange airport and railway station transfers, private chefs, beach picnics, Pondicherry sightseeing tours, Auroville visits, yoga sessions, spa treatments, restaurant reservations, and more — all tailored to your group's preferences."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "How do I join the Pynest priority waitlist?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Fill in the Priority Access form on our website with your name, email, mobile number, and stay preference. Waitlist members get first access to new villa listings, exclusive launch pricing up to 25% off, a curated Pondicherry travel guide, personalized concierge onboarding, and priority WhatsApp support. No credit card required."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "What is the minimum stay duration at Pynest villas in Pondicherry?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Most Pynest villas have a minimum stay of 2 nights, though some properties allow single-night stays on weekdays. Weekend bookings (Friday–Sunday) typically require a 2-night minimum. Extended stays of a week or more attract special rates. Contact us for custom stay durations."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "How far are Pynest villas from Pondicherry's major attractions?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Our villas are strategically located across Pondicherry. French Quarter and White Town villas are within walking distance of Promenade Beach, Rock Beach, and heritage restaurants. Beachfront villas are directly on Serenity Beach or Paradise Beach. Auroville is a 20-minute drive from most properties."
+        }
+      }
+    ]
+  }
+}

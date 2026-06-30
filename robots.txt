@@ -1,4 +1,43 @@
+# ════════════════════════════════════════════════════════════
+# robots.txt — https://pynest.in
+# Pynest — Luxury Villas & Private Retreats, Pondicherry
+# ════════════════════════════════════════════════════════════
+
 User-agent: *
 Allow: /
 
+# Block any future admin, cart, or internal tooling paths
+Disallow: /admin/
+Disallow: /api/
+Disallow: /*?utm_*
+Disallow: /*?fbclid*
+Disallow: /*?gclid*
+Disallow: /cgi-bin/
+
+# Explicitly allow core crawl paths
+Allow: /villas
+Allow: /private-pool-villas
+Allow: /beachfront-villas
+Allow: /heritage-villas
+Allow: /family-villas
+Allow: /couple-villas
+Allow: /pondicherry
+Allow: /blog
+Allow: /about
+Allow: /contact
+Allow: /property/
+
+# Sitemap location — critical for discovery
 Sitemap: https://pynest.in/sitemap.xml
+
+# Crawl-delay not needed for Googlebot; left out intentionally
+# (Crawl-delay is ignored by Google but respected by some other bots)
+User-agent: Bingbot
+Allow: /
+Crawl-delay: 1
+
+User-agent: GPTBot
+Allow: /
+
+User-agent: ClaudeBot
+Allow: /
