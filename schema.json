@@ -102,7 +102,8 @@
     "containsPlace": [
       {"@type": "LodgingBusiness", "name": "Lakshmi Villa", "description": "Luxury private villa in Vasantha Nagar, Puducherry"},
       {"@type": "LodgingBusiness", "name": "Luken Bay Villa", "description": "Beachfront villa in Kuruchikuppam, Puducherry"},
-      {"@type": "LodgingBusiness", "name": "Pynest Hut House Villa", "description": "Unique hut-style villa near Anumandai, Puducherry"}
+      {"@type": "LodgingBusiness", "name": "Pynest Hut House Villa", "description": "Unique hut-style villa near Anumandai, Puducherry"},
+      {"@type": "LodgingBusiness", "name": "Pynest 3BHK Priva Beach House Villa", "description": "Private 3-bedroom beach house villa in Hanumandhai, Puducherry"}
     ],
     "sameAs": [
       "https://www.instagram.com/pynest.in",
