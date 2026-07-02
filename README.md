@@ -22,6 +22,13 @@ No build tools, no npm, no backend — plain HTML/CSS/JS.
   - ⏳ `/destinations/`, `/experiences/`, `/blog/`, legal pages,
     `/become-host/`, `/partner/`, `/careers/` — folders scaffolded,
     not yet built.
+  - ✅ `/destinations/` hub + 4 destination guides (White Town, Auroville,
+    Serenity Beach, Paradise Beach) with `TouristAttraction` schema.
+    Auroville page links to the real Pynest villa located there
+    (Vintage House 4BHK); beach pages cross-link to the Beach Villas
+    category rather than naming an unconfirmed exact property.
+  - ⏳ `/experiences/`, `/blog/`, legal pages, `/become-host/`,
+    `/partner/`, `/careers/` — folders scaffolded, not yet built.
 
 ## How pages are built
 
