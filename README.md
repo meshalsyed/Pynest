@@ -12,9 +12,16 @@ No build tools, no npm, no backend — plain HTML/CSS/JS.
   - ✅ `/faq/` (full FAQPage schema)
   - ✅ `/contact/` (LocalBusiness schema, WhatsApp form, map embed)
   - ✅ `/villas/` (hub page linking to 8 villa-type pages, ItemList schema)
-  - ⏳ Individual villa-type pages, `/destinations/`, `/experiences/`,
-    `/blog/`, legal pages, `/become-host/`, `/partner/`, `/careers/` —
-    folders scaffolded, not yet built.
+  - ✅ 8 villa-type pages, each with unique SEO title/description and
+    BreadcrumbList schema — populated with Pynest's real listed
+    properties (Lakshmi Villa, Luken Bay Villa, Pynest Hut House Villa,
+    3BHK Private Beach House Villa, Vintage House 4BHK). Categories with
+    no confirmed matching property yet (French Quarter, Pet Friendly)
+    ship with honest editorial copy and a concierge CTA instead of
+    fabricated listings.
+  - ⏳ `/destinations/`, `/experiences/`, `/blog/`, legal pages,
+    `/become-host/`, `/partner/`, `/careers/` — folders scaffolded,
+    not yet built.
 
 ## How pages are built
 
