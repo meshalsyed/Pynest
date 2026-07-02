@@ -30,6 +30,17 @@ No build tools, no npm, no backend — plain HTML/CSS/JS.
   - ⏳ `/experiences/`, `/blog/`, legal pages, `/become-host/`,
     `/partner/`, `/careers/` — folders scaffolded, not yet built.
 
+- **Also completed this stage:**
+  - ✅ `/experiences/` — expands the homepage's 5 experience categories
+    (Romantic, Family, Wellness, Celebrations, Workcation) into full
+    detail sections, each cross-linked to the relevant villa page.
+  - ✅ `/privacy-policy/`, `/terms-of-use/`, `/cancellation-policy/` —
+    template legal pages. **These are general templates and have not
+    been reviewed by a lawyer** — have them checked before relying on
+    them for compliance.
+  - ⏳ Still open: `/blog/`, `/become-host/`, `/partner/`, `/careers/`,
+    `/wishlist/`, `/search/`, `/booking/`.
+
 ## How pages are built
 
 Every inner page (everything except `index.html`, which stays fully
