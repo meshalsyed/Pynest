@@ -2,9 +2,8 @@
 <!--
   ╔══════════════════════════════════════════════════════════════════╗
   ║  PYNEST — ABOUT · Luxury Villas & Private Retreats · Pondicherry   ║
-  ║  Sample inner page — establishes the shared component pattern      ║
-  ║  used by every future page (navbar / footer / social-dock via      ║
-  ║  /assets/js/include.js). Design tokens identical to the homepage.  ║
+  ║  Expanded edition — original structure preserved, new SEO-rich    ║
+  ║  sections added. Design tokens identical to the homepage.         ║
   ╚══════════════════════════════════════════════════════════════════╝
 -->
 <html lang="en-IN">
@@ -26,6 +25,7 @@
   <meta name="description" content="Pynest curates private pool villas, heritage homestays in White Town, and beachfront retreats across Pondicherry. Discover the story, values, and people behind Pynest."/>
   <link rel="canonical" href="https://pynest.in/about/"/>
   <meta name="robots" content="index, follow, max-image-preview:large"/>
+  <meta name="keywords" content="luxury villas in Pondicherry, private pool villa Pondicherry, beach villa Pondicherry, villa stay Pondicherry, heritage stay Pondicherry, French Colony stay, White Town villas, Auroville villas, luxury homestay Pondicherry, family villa Pondicherry, couple stay Pondicherry, group villa Pondicherry, weekend getaway Pondicherry, vacation rental Pondicherry, best villas in Pondicherry, holiday homes Pondicherry, luxury accommodation Pondicherry"/>
 
   <!-- OPEN GRAPH -->
   <meta property="og:type" content="website"/>
@@ -64,14 +64,31 @@
   }
   </script>
 
-  <!-- [SEO] Organization schema -->
+  <!-- [SEO] Organization schema — expanded -->
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
     "@type": "Organization",
     "name": "Pynest",
+    "alternateName": "Pynest Villas",
     "url": "https://pynest.in/",
     "logo": "https://pynest.in/assets/images/brand/pynestlogo.png",
+    "image": "https://pynest.in/assets/images/og/about-og.jpg",
+    "description": "Pynest curates private pool villas, beachfront estates, and heritage homestays across Pondicherry, India.",
+    "email": "hello@pynest.in",
+    "telephone": "+91-63821-86266",
+    "foundingLocation": {
+      "@type": "Place",
+      "name": "White Town, Puducherry, Tamil Nadu, India"
+    },
+    "areaServed": {
+      "@type": "City",
+      "name": "Puducherry"
+    },
+    "brand": {
+      "@type": "Brand",
+      "name": "Pynest"
+    },
     "sameAs": [
       "https://instagram.com/pynest.in",
       "https://facebook.com/pynest.in"
@@ -79,9 +96,81 @@
     "contactPoint": {
       "@type": "ContactPoint",
       "telephone": "+91-63821-86266",
+      "email": "hello@pynest.in",
       "contactType": "customer service",
-      "areaServed": "IN"
+      "areaServed": "IN",
+      "availableLanguage": ["en","ta","fr"]
     }
+  }
+  </script>
+
+  <!-- [SEO] LocalBusiness schema -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "LodgingBusiness",
+    "name": "Pynest",
+    "image": "https://pynest.in/assets/images/og/about-og.jpg",
+    "url": "https://pynest.in/about/",
+    "telephone": "+91-63821-86266",
+    "email": "hello@pynest.in",
+    "priceRange": "₹₹₹",
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Puducherry",
+      "addressRegion": "Tamil Nadu",
+      "addressCountry": "IN"
+    },
+    "geo": {
+      "@type": "GeoCoordinates",
+      "latitude": 11.9416,
+      "longitude": 79.8083
+    },
+    "areaServed": [
+      {"@type":"Place","name":"White Town, Puducherry"},
+      {"@type":"Place","name":"Auroville"},
+      {"@type":"Place","name":"French Colony, Puducherry"},
+      {"@type":"Place","name":"ECR, Puducherry"}
+    ],
+    "hasMap": "https://maps.google.com/?q=Pynest+Villas+Puducherry",
+    "sameAs": [
+      "https://instagram.com/pynest.in",
+      "https://facebook.com/pynest.in"
+    ]
+  }
+  </script>
+
+  <!-- [SEO] FAQPage schema -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {"@type":"Question","name":"Which is the best villa in Pondicherry?","acceptedAnswer":{"@type":"Answer","text":"The best villa depends on what you're looking for. Pynest curates handpicked private pool villas across White Town, the French Colony, ECR beach road and Auroville, so we match you to a villa based on group size, budget and location instead of pushing one 'best' property."}},
+      {"@type":"Question","name":"Do Pynest villas have private pools?","acceptedAnswer":{"@type":"Answer","text":"Most villas in our collection feature a private swimming pool. You can filter by private pool availability when browsing our villas page or ask our concierge team on WhatsApp for a curated shortlist."}},
+      {"@type":"Question","name":"Are your villas near White Town?","acceptedAnswer":{"@type":"Answer","text":"Yes, several villas in our portfolio sit inside or within a short walk of White Town's French Quarter, while others are located along the beach road or closer to Auroville, depending on the experience you want."}},
+      {"@type":"Question","name":"Can I book a villa for just one night?","acceptedAnswer":{"@type":"Answer","text":"Yes, one-night stays are available on most properties, though certain beachfront and heritage villas may have a minimum-stay requirement on weekends and holidays. Our concierge team will confirm exact availability."}},
+      {"@type":"Question","name":"Are the villas pet friendly?","acceptedAnswer":{"@type":"Answer","text":"A number of our villas welcome well-behaved pets. Since policies vary by property, please mention your pet while enquiring so we can shortlist pet-friendly villas for you."}},
+      {"@type":"Question","name":"Can I add extra guests beyond the base occupancy?","acceptedAnswer":{"@type":"Answer","text":"Most villas allow extra guests on request for an additional charge, subject to the property's maximum capacity and local safety norms. Let us know your exact headcount while booking."}},
+      {"@type":"Question","name":"Do the villas have a fully equipped kitchen?","acceptedAnswer":{"@type":"Answer","text":"Yes, the majority of our villas include a fully equipped kitchen so you can cook your own meals, and many hosts can also arrange a private chef or in-villa catering on request."}},
+      {"@type":"Question","name":"Is parking available at the villas?","acceptedAnswer":{"@type":"Answer","text":"Private, secure parking is available at almost all Pynest villas. If you're arriving by car, bike or a rented scooter, our team will confirm parking capacity in advance."}},
+      {"@type":"Question","name":"Is WiFi available in the villas?","acceptedAnswer":{"@type":"Answer","text":"Yes, complimentary high-speed WiFi is provided at all Pynest villas, making them suitable for remote work, digital nomads and corporate retreats."}},
+      {"@type":"Question","name":"Do the villas have power backup?","acceptedAnswer":{"@type":"Answer","text":"Most villas are equipped with power backup or an inverter to handle occasional outages, which are infrequent but possible in and around Pondicherry."}},
+      {"@type":"Question","name":"How far are the villas from the beach?","acceptedAnswer":{"@type":"Answer","text":"Distance varies by villa. Some of our beachfront properties open directly onto the sand, while others in White Town or Auroville are a short drive of roughly 5 to 20 minutes from the nearest beach."}},
+      {"@type":"Question","name":"What is the standard check-in and check-out time?","acceptedAnswer":{"@type":"Answer","text":"Standard check-in is from 2:00 PM and check-out is by 11:00 AM, though early check-in or late check-out can often be arranged based on the villa's schedule."}},
+      {"@type":"Question","name":"What is the cancellation policy?","acceptedAnswer":{"@type":"Answer","text":"Cancellation terms vary slightly by villa and season. Our concierge team will share the exact policy at the time of booking, and the full terms are also available on our cancellation policy page."}},
+      {"@type":"Question","name":"Are the villas suitable for a bachelor or bachelorette party?","acceptedAnswer":{"@type":"Answer","text":"Yes, several of our larger private pool villas are well suited to bachelor and bachelorette groups, with space for music, pool time and privacy away from hotel neighbours. House rules around noise and guest limits do apply."}},
+      {"@type":"Question","name":"Are the villas good for a family stay?","acceptedAnswer":{"@type":"Answer","text":"Absolutely. Many Pynest villas are chosen specifically for families, with multiple bedrooms, secure compounds, gardens and pools that work well for children and grandparents alike."}},
+      {"@type":"Question","name":"Can I organise a BBQ at the villa?","acceptedAnswer":{"@type":"Answer","text":"Many villas have an outdoor BBQ setup or garden space where one can be arranged. Let our team know in advance so the villa host can prepare equipment and charcoal."}},
+      {"@type":"Question","name":"Can you arrange a private chef service?","acceptedAnswer":{"@type":"Answer","text":"Yes, private chef and in-villa catering can be arranged at most properties, ranging from home-style Tamil and Creole-French breakfasts to a full multi-course dinner."}},
+      {"@type":"Question","name":"Can you help with birthday or anniversary decorations?","acceptedAnswer":{"@type":"Answer","text":"Yes, our concierge team can arrange balloon décor, cakes, candlelight setups and other celebration add-ons for birthdays, anniversaries and proposals with advance notice."}},
+      {"@type":"Question","name":"Do you take corporate or offsite bookings?","acceptedAnswer":{"@type":"Answer","text":"Yes, we regularly host corporate retreats and offsite teams. We can help block multiple villas near each other, arrange meeting-friendly spaces and coordinate group logistics."}},
+      {"@type":"Question","name":"What payment options are accepted?","acceptedAnswer":{"@type":"Answer","text":"We accept UPI, major debit and credit cards, and bank transfers. A booking is typically confirmed with an advance payment, with the balance payable before or at check-in."}},
+      {"@type":"Question","name":"Are Pynest villas suitable for couples looking for a private stay?","acceptedAnswer":{"@type":"Answer","text":"Yes, couples frequently choose our smaller private pool villas for weekend getaways and honeymoons, valuing the privacy of a standalone villa over a shared hotel property."}},
+      {"@type":"Question","name":"Do you offer villas specifically near Auroville?","acceptedAnswer":{"@type":"Answer","text":"Yes, our portfolio includes villas closer to Auroville for guests who want quieter surroundings, proximity to the Matrimandir, and easy access to Auroville's cafés and craft studios."}},
+      {"@type":"Question","name":"Is airport or railway station transfer available?","acceptedAnswer":{"@type":"Answer","text":"Our concierge team can arrange airport and railway station transfers on request, whether you are arriving from Chennai airport or Puducherry railway station."}},
+      {"@type":"Question","name":"How do I check real-time availability and pricing?","acceptedAnswer":{"@type":"Answer","text":"The fastest way is to message our concierge team on WhatsApp with your travel dates and group size, or browse live listings on our villas page."}}
+    ]
   }
   </script>
 
@@ -91,6 +180,45 @@
     .about-story-grid{display:grid;grid-template-columns:1fr 1fr;gap:72px;align-items:center}
     @media(max-width:860px){.about-story-grid{grid-template-columns:1fr;gap:40px}}
     .about-story-img{width:100%;aspect-ratio:4/5;object-fit:cover;border-radius:var(--r4);box-shadow:var(--s3)}
+
+    /* ---- New section additions (reuse existing tokens: --r4, --s3, --cr, --gold if present) ---- */
+
+    .mini-cta{display:flex;flex-wrap:wrap;gap:16px;margin-top:32px}
+
+    /* Timeline */
+    .timeline{position:relative;max-width:920px;margin:0 auto;padding-left:32px;border-left:1px solid rgba(0,0,0,.12)}
+    .timeline-item{position:relative;padding:0 0 48px 32px}
+    .timeline-item:last-child{padding-bottom:0}
+    .timeline-marker{position:absolute;left:-41px;top:2px;width:18px;height:18px;border-radius:50%;background:var(--cr,#f6f1e9);border:2px solid currentColor}
+    .timeline-year{font-family:'Jost',sans-serif;font-size:.78rem;letter-spacing:.14em;text-transform:uppercase;opacity:.65;margin-bottom:6px}
+    .timeline-title{font-family:'Cormorant Garamond',serif;font-size:1.5rem;margin:0 0 8px}
+    @media(max-width:640px){.timeline{padding-left:22px}.timeline-item{padding-left:22px}.timeline-marker{left:-31px}}
+
+    /* Explore / Serve / Experience / Promise / EEAT grids reuse .value-grid + .value-card patterns */
+    .card-grid-3{display:grid;grid-template-columns:repeat(3,1fr);gap:28px}
+    .card-grid-4{display:grid;grid-template-columns:repeat(4,1fr);gap:24px}
+    @media(max-width:960px){.card-grid-3{grid-template-columns:repeat(2,1fr)}.card-grid-4{grid-template-columns:repeat(2,1fr)}}
+    @media(max-width:560px){.card-grid-3{grid-template-columns:1fr}.card-grid-4{grid-template-columns:1fr}}
+
+    .place-card,.serve-card,.experience-card,.promise-card,.eeat-card{background:#fff;border-radius:var(--r4);box-shadow:var(--s3);padding:28px;height:100%}
+    .place-card .place-meta{font-size:.82rem;opacity:.65;margin-top:10px;font-family:'Jost',sans-serif;letter-spacing:.02em}
+
+    /* Stats */
+    .stats-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:24px;text-align:center}
+    @media(max-width:760px){.stats-grid{grid-template-columns:repeat(2,1fr)}}
+    .stat-number{font-family:'Cormorant Garamond',serif;font-size:2.6rem;font-weight:600}
+    .stat-label{font-family:'Jost',sans-serif;font-size:.82rem;letter-spacing:.08em;text-transform:uppercase;opacity:.7;margin-top:4px}
+
+    /* FAQ (no JS — native <details>) */
+    .faq-list{max-width:880px;margin:0 auto}
+    .faq-item{border-bottom:1px solid rgba(0,0,0,.12)}
+    .faq-item summary{cursor:pointer;list-style:none;padding:20px 4px;font-family:'Cormorant Garamond',serif;font-size:1.15rem;display:flex;justify-content:space-between;gap:16px;align-items:center}
+    .faq-item summary::-webkit-details-marker{display:none}
+    .faq-item summary::after{content:"+";font-family:'Jost',sans-serif;font-size:1.4rem;flex-shrink:0}
+    .faq-item[open] summary::after{content:"–"}
+    .faq-answer{padding:0 4px 22px;font-family:'Jost',sans-serif;line-height:1.7;opacity:.85}
+
+    .content-prose h3{font-family:'Cormorant Garamond',serif;font-size:1.3rem;margin:28px 0 10px}
   </style>
 </head>
 
@@ -128,7 +256,7 @@
       <div class="sec-inner">
         <div class="about-story-grid">
           <div class="reveal">
-            <img class="about-story-img" src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=1000&q=80" alt="Whitewashed heritage villa courtyard in Pondicherry's French Quarter" loading="lazy" decoding="async" width="1000" height="1250"/>
+            <img class="about-story-img" src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=1000&q=80" alt="Whitewashed heritage villa courtyard in Pondicherry's French Quarter, an example of the private pool villas curated by Pynest" loading="lazy" decoding="async" width="1000" height="1250"/>
           </div>
           <div class="reveal reveal-d2">
             <div class="sec-label">Why Pynest</div>
@@ -168,6 +296,538 @@
       </div>
     </section>
 
+    <!-- ============================================================ -->
+    <!-- 1. OUR JOURNEY -->
+    <!-- ============================================================ -->
+    <section class="content-section" aria-labelledby="journey-h2">
+      <div class="sec-inner">
+        <div class="sec-label">Our Journey</div>
+        <h2 class="sec-h2" id="journey-h2">From one villa to <em>Pondicherry's villa collection</em></h2>
+        <div class="gold-rule"></div>
+
+        <ol class="timeline" style="list-style:none;margin-top:40px;padding-top:8px">
+          <li class="timeline-item reveal">
+            <span class="timeline-marker" aria-hidden="true"></span>
+            <div class="timeline-year">The Beginning</div>
+            <h3 class="timeline-title">Why we started in Pondicherry</h3>
+            <p class="content-prose">Pynest began with a single heritage villa tucked inside White Town's French Quarter. We noticed a gap: travellers wanted the charm of Pondicherry's colonial streets and beaches, but hotel rooms couldn't offer the privacy, space, or sense of place a villa stay could. So we started managing that one villa the way we'd want it managed for our own family.</p>
+          </li>
+          <li class="timeline-item reveal reveal-d2">
+            <span class="timeline-marker" aria-hidden="true"></span>
+            <div class="timeline-year">Why Pondicherry</div>
+            <h3 class="timeline-title">A town built for villa living</h3>
+            <p class="content-prose">Pondicherry's mix of French colonial architecture, Tamil heritage, quiet beaches, and a genuinely walkable town centre made it the natural home for a villa brand. Unlike larger beach destinations, Pondicherry rewards a slower, private way of travelling — exactly what a villa stay is designed for.</p>
+          </li>
+          <li class="timeline-item reveal reveal-d3">
+            <span class="timeline-marker" aria-hidden="true"></span>
+            <div class="timeline-year">Growth</div>
+            <h3 class="timeline-title">Building a curated portfolio</h3>
+            <p class="content-prose">Word of mouth from happy guests, combined with a strict inspection process for every new property, grew Pynest into a portfolio spanning White Town, the beach road, and the quieter lanes near Auroville — private pool villas, family homes, and heritage stays alike.</p>
+          </li>
+          <li class="timeline-item reveal">
+            <span class="timeline-marker" aria-hidden="true"></span>
+            <div class="timeline-year">Our Mission</div>
+            <h3 class="timeline-title">Hospitality that feels personal</h3>
+            <p class="content-prose">Our mission is simple: make every villa stay feel like a personal invitation into Pondicherry, backed by real concierge support, transparent pricing, and properties that are actually worth staying in — not just worth photographing.</p>
+          </li>
+          <li class="timeline-item reveal reveal-d2">
+            <span class="timeline-marker" aria-hidden="true"></span>
+            <div class="timeline-year">Looking Ahead</div>
+            <h3 class="timeline-title">Where we're headed</h3>
+            <p class="content-prose">We're expanding our collection along the ECR beach road and around Auroville, while investing further in guest experiences — private chefs, curated local tours, and events — so that a Pynest villa stay keeps getting better, not just bigger.</p>
+          </li>
+        </ol>
+
+        <div class="mini-cta">
+          <a class="btn-gold" href="/villas/">Browse Villas</a>
+          <a class="btn-outline" href="https://wa.me/916382186266?text=Hi%20Pynest%2C%20I%27d%20like%20to%20know%20more%20about%20your%20villas." target="_blank" rel="noopener noreferrer">Chat on WhatsApp</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================================ -->
+    <!-- 2. WHY CHOOSE A PRIVATE VILLA IN PONDICHERRY -->
+    <!-- ============================================================ -->
+    <section class="content-section" style="background:var(--cr)" aria-labelledby="why-villa-h2">
+      <article class="sec-inner">
+        <div class="sec-label">The Villa Advantage</div>
+        <h2 class="sec-h2" id="why-villa-h2">Why choose a <em>private villa</em> in Pondicherry</h2>
+        <div class="gold-rule"></div>
+        <div class="content-prose">
+          <p>Ask anyone who has stayed in both a hotel room and a private pool villa in Pondicherry, and they'll tell you it isn't really a contest. A hotel gives you a room. A villa gives you a home — for as long as you're here. That difference shapes everything about how a trip feels, from the moment you arrive to the last lazy breakfast before checkout.</p>
+
+          <h3>Privacy that a hotel simply can't offer</h3>
+          <p>The single biggest reason travellers choose a villa stay in Pondicherry over a hotel is privacy. There's no shared lobby, no corridor of strangers, no other guests around the pool. When you book a Pynest villa, the entire property — garden, pool, living rooms, and bedrooms — belongs to your group alone. For couples on a honeymoon or a quiet weekend getaway, that privacy is often the whole point of the trip.</p>
+
+          <h3>A private swimming pool, not a shared one</h3>
+          <p>Most of our villas come with a private swimming pool, which changes the entire rhythm of a stay. Morning laps before the town wakes up, a lazy afternoon float, or a midnight swim under the stars — none of it requires sharing a pool deck with strangers or working around hotel pool timings. For families with young children, a private pool is also simply safer.</p>
+
+          <h3>Built for family gatherings</h3>
+          <p>Booking connecting hotel rooms for a multi-generational family trip is a logistical headache. A family villa in Pondicherry solves this instantly: everyone under one roof, a shared living room for evening card games, a kitchen for the grandparents to potter around in, and enough bedrooms that nobody has to compromise on comfort. It's why family villa bookings are one of the fastest-growing parts of our business.</p>
+
+          <h3>An easy base for corporate retreats</h3>
+          <p>Pondicherry has quietly become a favourite for corporate offsites and small team retreats, and a villa is a far better base than a conference hotel. Teams get a private space to brainstorm by the pool during the day and unwind properly in the evening, without the artificial formality of a hotel banquet hall. Several villas in our collection can be booked together for larger teams.</p>
+
+          <h3>Space to celebrate — bachelor and bachelorette parties included</h3>
+          <p>A villa stay gives bachelor and bachelorette groups the one thing hotels almost never allow: the freedom to actually let loose. Music through the evening, a full pool to yourselves, and no other guests to disturb, all inside a private compound. It's why so many Pondicherry bachelor parties now start with a villa booking rather than a hotel block.</p>
+
+          <h3>Made for couples</h3>
+          <p>Not every couple wants a party — many just want quiet. A smaller private pool villa in White Town or near Auroville gives couples a stay that feels like their own little house in Pondicherry, with none of the noise of a hotel corridor. It's a big reason couple stays and honeymoon bookings make up a steady share of our guests.</p>
+
+          <h3>Pet-friendly, when hotels say no</h3>
+          <p>Travelling with a dog usually narrows your hotel options to almost nothing. A number of our villas are genuinely pet friendly, with secure gardens and outdoor space, so your pet doesn't have to stay behind for you to enjoy a Pondicherry holiday.</p>
+
+          <h3>Cooking together, the way a home is meant to be used</h3>
+          <p>Most Pynest villas include a fully equipped kitchen. For many guests, cooking a meal together — or having a private chef prepare a home-style Tamil or Franco-Creole dinner in the villa's dining room — becomes the highlight of the trip, something a hotel restaurant simply cannot replicate.</p>
+
+          <h3>Proximity to the beach, on your own terms</h3>
+          <p>Several of our beach villas sit a short stroll from the sand, letting you plan sunrise walks or sunset swims around your own schedule rather than a resort's timetable. Even villas set slightly inland in White Town or Auroville are only a short drive from Pondicherry's best beaches.</p>
+
+          <h3>A genuinely luxury experience, without a lobby in between</h3>
+          <p>Ultimately, a private villa is luxury without an audience. You get the design, comfort and service quality of a boutique hotel, minus the transactional feel — check-in on your own terms, a host who knows the property intimately, and a stay that feels tailored rather than templated. That's the experience we've built Pynest around.</p>
+        </div>
+        <div class="mini-cta">
+          <a class="btn-gold" href="/villas/">Browse Villas</a>
+          <a class="btn-outline" href="tel:+916382186266">Call Now</a>
+        </div>
+      </article>
+    </section>
+
+    <!-- ============================================================ -->
+    <!-- 3. EXPLORE PONDICHERRY -->
+    <!-- ============================================================ -->
+    <section class="content-section" aria-labelledby="explore-h2">
+      <div class="sec-inner">
+        <div class="sec-label">Explore Pondicherry</div>
+        <h2 class="sec-h2" id="explore-h2">The town beyond <em>your villa gate</em></h2>
+        <div class="gold-rule"></div>
+        <div class="card-grid-3" style="margin-top:32px">
+
+          <article class="place-card reveal">
+            <h3 class="value-title">White Town</h3>
+            <p class="value-desc">Pondicherry's French Quarter — mustard-yellow colonial villas, bougainvillea-lined streets, and boutique cafés. Many Pynest villas sit inside or a short walk from here.</p>
+            <div class="place-meta">0–10 min from most White Town villas</div>
+          </article>
+
+          <article class="place-card reveal reveal-d2">
+            <h3 class="value-title">Rock Beach (Promenade)</h3>
+            <p class="value-desc">The town's iconic seafront promenade, closed to traffic in the evenings and lined with statues, the old lighthouse, and sea-facing benches — perfect for a sunset walk.</p>
+            <div class="place-meta">Approx. 5–15 min from White Town villas</div>
+          </article>
+
+          <article class="place-card reveal reveal-d3">
+            <h3 class="value-title">Paradise Beach</h3>
+            <p class="value-desc">A quieter, boat-access beach near Chunnambar with calm backwaters, golden sand, and fewer crowds — a favourite for a lazy half-day trip.</p>
+            <div class="place-meta">Approx. 20–30 min drive</div>
+          </article>
+
+          <article class="place-card reveal">
+            <h3 class="value-title">Serenity Beach</h3>
+            <p class="value-desc">Popular with surfers and early risers, this stretch north of town is known for its waves, beach shacks, and unhurried mornings.</p>
+            <div class="place-meta">Approx. 20–25 min drive</div>
+          </article>
+
+          <article class="place-card reveal reveal-d2">
+            <h3 class="value-title">Auroville</h3>
+            <p class="value-desc">The experimental township famous for the golden Matrimandir, forested cycling trails, craft studios, and organic cafés — a full change of pace from town.</p>
+            <div class="place-meta">Approx. 25–40 min drive</div>
+          </article>
+
+          <article class="place-card reveal reveal-d3">
+            <h3 class="value-title">Auroville Beach</h3>
+            <p class="value-desc">A wilder, less-developed stretch of coast near Auroville, ideal for a quiet swim or an early morning drive followed by breakfast in the township.</p>
+            <div class="place-meta">Approx. 30–40 min drive</div>
+          </article>
+
+          <article class="place-card reveal">
+            <h3 class="value-title">Chunnambar Boat House</h3>
+            <p class="value-desc">Backwater boat rides through mangroves to Paradise Beach, plus kayaking and speedboat options for an active half-day outing.</p>
+            <div class="place-meta">Approx. 20–30 min drive</div>
+          </article>
+
+          <article class="place-card reveal reveal-d2">
+            <h3 class="value-title">Basilica of the Sacred Heart</h3>
+            <p class="value-desc">A striking neo-Gothic church with stained-glass windows, reflecting Pondicherry's layered French-Tamil-Catholic heritage.</p>
+            <div class="place-meta">Approx. 10–15 min from most villas</div>
+          </article>
+
+          <article class="place-card reveal reveal-d3">
+            <h3 class="value-title">French Colony & Shopping Streets</h3>
+            <p class="value-desc">Rue Romain Rolland and Rue Bussy's boutique stores, perfumeries, and design shops make for a leisurely afternoon of browsing between cafés.</p>
+            <div class="place-meta">Walking distance from White Town villas</div>
+          </article>
+        </div>
+
+        <div class="content-prose" style="margin-top:36px">
+          <p>Beyond the landmarks, Pondicherry's real charm is its café culture — slow mornings over filter coffee or French pastries at a converted colonial home — layered against centuries of Tamil heritage visible in its temples, markets, and everyday street life. It's this contrast, French architecture next to Tamil tradition, that gives the town its unmistakable character, and it's all within easy reach of a Pynest villa.</p>
+        </div>
+        <div class="mini-cta">
+          <a class="btn-gold" href="/villas/">Browse Villas Near These Spots</a>
+          <a class="btn-outline" href="/blog/">Read Our Pondicherry Guides</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================================ -->
+    <!-- 4. WHO WE SERVE -->
+    <!-- ============================================================ -->
+    <section class="content-section" style="background:var(--cr)" aria-labelledby="serve-h2">
+      <div class="sec-inner">
+        <div class="sec-label">Who We Serve</div>
+        <h2 class="sec-h2" id="serve-h2">A villa for <em>every kind of traveller</em></h2>
+        <div class="gold-rule"></div>
+        <div class="card-grid-4" style="margin-top:32px">
+          <article class="serve-card reveal">
+            <div class="value-icon">👨‍👩‍👧‍👦</div>
+            <h3 class="value-title">Families</h3>
+            <p class="value-desc">Multi-bedroom family villas with pools and gardens for every generation.</p>
+          </article>
+          <article class="serve-card reveal reveal-d2">
+            <div class="value-icon">🎉</div>
+            <h3 class="value-title">Friends & Groups</h3>
+            <p class="value-desc">Group villas built for a full house — pool parties, music, and shared meals.</p>
+          </article>
+          <article class="serve-card reveal reveal-d3">
+            <div class="value-icon">💼</div>
+            <h3 class="value-title">Corporate Teams</h3>
+            <p class="value-desc">Private, WiFi-ready villas for offsites, retreats, and team bonding.</p>
+          </article>
+          <article class="serve-card reveal">
+            <div class="value-icon">💑</div>
+            <h3 class="value-title">Couples</h3>
+            <p class="value-desc">Intimate villas suited to honeymoons and quiet weekend getaways.</p>
+          </article>
+          <article class="serve-card reveal reveal-d2">
+            <div class="value-icon">✈️</div>
+            <h3 class="value-title">International Tourists</h3>
+            <p class="value-desc">Comfortable, English-friendly stays with concierge support for visitors from abroad.</p>
+          </article>
+          <article class="serve-card reveal reveal-d3">
+            <div class="value-icon">🗓️</div>
+            <h3 class="value-title">Weekend Travellers</h3>
+            <p class="value-desc">Quick, easy weekend getaways from Chennai and Bangalore.</p>
+          </article>
+          <article class="serve-card reveal">
+            <div class="value-icon">💻</div>
+            <h3 class="value-title">Digital Nomads</h3>
+            <p class="value-desc">High-speed WiFi and quiet workspaces for longer, work-friendly stays.</p>
+          </article>
+          <article class="serve-card reveal reveal-d2">
+            <div class="value-icon">🎊</div>
+            <h3 class="value-title">Destination Events</h3>
+            <p class="value-desc">Villas suited to birthdays, proposals, and small destination celebrations.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================================ -->
+    <!-- 5. OUR PROMISE -->
+    <!-- ============================================================ -->
+    <section class="content-section" aria-labelledby="promise-h2">
+      <div class="sec-inner">
+        <div class="sec-label">Our Promise</div>
+        <h2 class="sec-h2" id="promise-h2">What you can <em>always expect</em> from Pynest</h2>
+        <div class="gold-rule"></div>
+        <div class="card-grid-4" style="margin-top:32px">
+          <article class="promise-card reveal">
+            <div class="value-icon">✅</div>
+            <h3 class="value-title">Verified Villas</h3>
+            <p class="value-desc">Every property is personally inspected before it's listed.</p>
+          </article>
+          <article class="promise-card reveal reveal-d2">
+            <div class="value-icon">🧼</div>
+            <h3 class="value-title">Cleanliness</h3>
+            <p class="value-desc">Strict housekeeping standards checked between every stay.</p>
+          </article>
+          <article class="promise-card reveal reveal-d3">
+            <div class="value-icon">🎧</div>
+            <h3 class="value-title">Professional Support</h3>
+            <p class="value-desc">A real concierge team, not a chatbot, throughout your trip.</p>
+          </article>
+          <article class="promise-card reveal">
+            <div class="value-icon">⚡</div>
+            <h3 class="value-title">Fast WhatsApp Assistance</h3>
+            <p class="value-desc">Quick responses for enquiries, requests, and on-trip support.</p>
+          </article>
+          <article class="promise-card reveal reveal-d2">
+            <div class="value-icon">💳</div>
+            <h3 class="value-title">Transparent Pricing</h3>
+            <p class="value-desc">The price you're quoted is the price you pay.</p>
+          </article>
+          <article class="promise-card reveal reveal-d3">
+            <div class="value-icon">🚫</div>
+            <h3 class="value-title">No Hidden Charges</h3>
+            <p class="value-desc">Cleaning, caretaker, and utility terms explained upfront.</p>
+          </article>
+          <article class="promise-card reveal">
+            <div class="value-icon">📍</div>
+            <h3 class="value-title">Local Expertise</h3>
+            <p class="value-desc">Recommendations from a team that actually lives in Pondicherry.</p>
+          </article>
+          <article class="promise-card reveal reveal-d2">
+            <div class="value-icon">🔒</div>
+            <h3 class="value-title">Safe Booking</h3>
+            <p class="value-desc">Secure payments and confirmed bookings, every time.</p>
+          </article>
+        </div>
+        <div class="mini-cta">
+          <a class="btn-gold" href="/villas/">Browse Villas</a>
+          <a class="btn-outline" href="/cancellation-policy/">View Cancellation Policy</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================================ -->
+    <!-- 8. LOCAL EXPERIENCES -->
+    <!-- ============================================================ -->
+    <section class="content-section" style="background:var(--cr)" aria-labelledby="experiences-h2">
+      <div class="sec-inner">
+        <div class="sec-label">Local Experiences</div>
+        <h2 class="sec-h2" id="experiences-h2">Live Pondicherry <em>like a local</em></h2>
+        <div class="gold-rule"></div>
+        <div class="card-grid-4" style="margin-top:32px">
+          <article class="experience-card reveal"><div class="value-icon">🌅</div><h3 class="value-title">Sunrise Beach Walk</h3><p class="value-desc">Start the day along Rock Beach before the town wakes up.</p></article>
+          <article class="experience-card reveal reveal-d2"><div class="value-icon">☕</div><h3 class="value-title">French Cafés</h3><p class="value-desc">Croissants and filter coffee inside White Town's colonial homes.</p></article>
+          <article class="experience-card reveal reveal-d3"><div class="value-icon">🚲</div><h3 class="value-title">Cycling Tour</h3><p class="value-desc">Pedal through Auroville's forested trails and quiet lanes.</p></article>
+          <article class="experience-card reveal"><div class="value-icon">🏄</div><h3 class="value-title">Surfing</h3><p class="value-desc">Catch a wave at Serenity Beach with a local surf school.</p></article>
+          <article class="experience-card reveal reveal-d2"><div class="value-icon">🛕</div><h3 class="value-title">Temple Visits</h3><p class="value-desc">Explore Tamil temples that predate the French colonial town.</p></article>
+          <article class="experience-card reveal reveal-d3"><div class="value-icon">📸</div><h3 class="value-title">Photography Walks</h3><p class="value-desc">Pastel streets and colonial doorways made for golden-hour shots.</p></article>
+          <article class="experience-card reveal"><div class="value-icon">🛍️</div><h3 class="value-title">Local Shopping</h3><p class="value-desc">Boutiques, perfumeries, and handmade paper stores in the French Quarter.</p></article>
+          <article class="experience-card reveal reveal-d2"><div class="value-icon">🍢</div><h3 class="value-title">Street Food</h3><p class="value-desc">Tamil snacks and roadside stalls just outside the colonial core.</p></article>
+          <article class="experience-card reveal reveal-d3"><div class="value-icon">🦐</div><h3 class="value-title">Seafood by the Coast</h3><p class="value-desc">Fresh catch at beachside shacks along the ECR road.</p></article>
+          <article class="experience-card reveal"><div class="value-icon">🧘</div><h3 class="value-title">Yoga</h3><p class="value-desc">Morning sessions in Auroville or in your villa's own garden.</p></article>
+          <article class="experience-card reveal reveal-d2"><div class="value-icon">🕉️</div><h3 class="value-title">Meditation</h3><p class="value-desc">Quiet time at the Matrimandir's meditation spaces in Auroville.</p></article>
+          <article class="experience-card reveal reveal-d3"><div class="value-icon">🛶</div><h3 class="value-title">Backwater Boating</h3><p class="value-desc">Mangrove boat rides from Chunnambar toward Paradise Beach.</p></article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================================ -->
+    <!-- 9. TRUST SECTION -->
+    <!-- ============================================================ -->
+    <section class="content-section" aria-labelledby="trust-h2">
+      <div class="sec-inner">
+        <div class="sec-label">Trusted By Guests</div>
+        <h2 class="sec-h2" id="trust-h2">Numbers that <em>back the promise</em></h2>
+        <div class="gold-rule"></div>
+        <div class="stats-grid" style="margin-top:36px">
+          <div class="reveal">
+            <div class="stat-number">5000+</div>
+            <div class="stat-label">Happy Guests Hosted</div>
+          </div>
+          <div class="reveal reveal-d2">
+            <div class="stat-number">Top&nbsp;Rated</div>
+            <div class="stat-label">Handpicked Villas</div>
+          </div>
+          <div class="reveal reveal-d3">
+            <div class="stat-number">&lt;15&nbsp;min</div>
+            <div class="stat-label">Average WhatsApp Response</div>
+          </div>
+          <div class="reveal">
+            <div class="stat-number">100%</div>
+            <div class="stat-label">Locally Managed</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================================ -->
+    <!-- 10. GOOGLE EEAT CONTENT -->
+    <!-- ============================================================ -->
+    <section class="content-section" style="background:var(--cr)" aria-labelledby="eeat-h2">
+      <div class="sec-inner">
+        <div class="sec-label">Experience, Expertise, Authority, Trust</div>
+        <h2 class="sec-h2" id="eeat-h2">Why guests <em>trust Pynest</em></h2>
+        <div class="gold-rule"></div>
+        <div class="card-grid-4" style="margin-top:32px">
+          <article class="eeat-card reveal">
+            <h3 class="value-title">Property Inspections</h3>
+            <p class="value-desc">Every villa is visited and inspected in person for safety, cleanliness, and design before it joins our collection — and re-checked periodically after.</p>
+          </article>
+          <article class="eeat-card reveal reveal-d2">
+            <h3 class="value-title">Local Partnerships</h3>
+            <p class="value-desc">We work directly with villa owners, caretakers, and local vendors in Pondicherry, not third-party resellers, so information and support stay accurate.</p>
+          </article>
+          <article class="eeat-card reveal reveal-d3">
+            <h3 class="value-title">Ongoing Quality Checks</h3>
+            <p class="value-desc">Housekeeping, amenities, and photos are periodically reviewed so what you see while booking matches what you find at check-in.</p>
+          </article>
+          <article class="eeat-card reveal">
+            <h3 class="value-title">Real Guest Support</h3>
+            <p class="value-desc">Our concierge team is reachable throughout your stay — not just before you book — for anything from a late checkout to a broken AC remote.</p>
+          </article>
+          <article class="eeat-card reveal reveal-d2">
+            <h3 class="value-title">Transparent Communication</h3>
+            <p class="value-desc">Pricing, house rules, and cancellation terms are shared upfront in writing, so there are no surprises at check-in.</p>
+          </article>
+          <article class="eeat-card reveal reveal-d3">
+            <h3 class="value-title">Years Rooted in One Town</h3>
+            <p class="value-desc">We focus only on Pondicherry. That focus means deeper local knowledge than a platform trying to cover an entire country.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================================ -->
+    <!-- 7. WHY PONDICHERRY IS SPECIAL -->
+    <!-- ============================================================ -->
+    <section class="content-section" aria-labelledby="special-h2">
+      <article class="sec-inner">
+        <div class="sec-label">The Destination</div>
+        <h2 class="sec-h2" id="special-h2">Why <em>Pondicherry</em> is special</h2>
+        <div class="gold-rule"></div>
+        <div class="content-prose">
+          <p>Most coastal towns in India ask you to choose between heritage and relaxation. Pondicherry doesn't make you choose. It hands you both, on the same street, often in the same hour — which is exactly why it has become one of India's most sought-after weekend and slow-travel destinations.</p>
+
+          <h3>A rare blend of French architecture and Tamil culture</h3>
+          <p>Walk from White Town into the Tamil quarter and the change is immediate: mustard-yellow French colonial villas with wooden shutters give way to vividly painted Tamil homes, temple gopurams, and narrow bazaar lanes. Few towns in India let you experience two entirely different architectural and cultural worlds within a ten-minute walk. That contrast, French colonial order meeting Tamil vibrancy, is the town's defining character.</p>
+
+          <h3>Food that tells the same story</h3>
+          <p>Pondicherry's food scene mirrors its history. You can start the morning with croissants and café au lait in a converted French villa, and end the day with a Tamil thali or fresh seafood at a beachside shack. The town's restaurants rarely feel like a compromise between cuisines — they let both traditions stand fully on their own, often within a short walk of each other.</p>
+
+          <h3>An unusually strong art and design scene</h3>
+          <p>Between Auroville's craft studios, White Town's boutique design stores, and a growing number of independent galleries, Pondicherry has quietly built one of South India's more interesting small-scale art and design communities — reflected in everything from handmade paper to architecture-led boutique stays.</p>
+
+          <h3>Spiritual tourism and Auroville</h3>
+          <p>Auroville draws a different kind of traveller altogether — one interested in yoga, meditation, and intentional living. The Matrimandir's meditation hall, the township's organic farms, and its forested cycling trails have made Auroville a genuine spiritual tourism destination in its own right, separate from, yet easily combined with, a Pondicherry town stay.</p>
+
+          <h3>Yoga, cycling and a slower pace</h3>
+          <p>Pondicherry rewards travellers who slow down. Wide, largely flat roads make cycling genuinely pleasant, whether it's an early ride along the promenade or a longer loop toward Auroville. Yoga sessions, whether in a villa garden or an Auroville studio, fit naturally into the town's unhurried mornings.</p>
+
+          <h3>Beaches for every mood</h3>
+          <p>Rock Beach for an evening promenade, Serenity Beach for surfing, Paradise Beach for a boat-access escape, and quieter stretches near Auroville for solitude — Pondicherry's coastline isn't one beach experience but several, each suited to a different kind of traveller.</p>
+
+          <h3>Luxury travel, without the crowds</h3>
+          <p>Compared to Goa or Kerala's backwaters, Pondicherry's luxury travel scene is still refreshingly uncrowded. Private pool villas, boutique heritage homestays, and quiet fine-dining spots exist here without the queues and inflated pricing of more saturated destinations — making it an increasingly popular weekend tourism choice from Chennai and Bangalore.</p>
+
+          <h3>Slow living as the whole point</h3>
+          <p>Ultimately, what makes Pondicherry special isn't any single landmark — it's the permission the town gives you to slow down. Long breakfasts, unhurried walks, an afternoon with nothing scheduled. It's a town built for a villa stay, not a checklist itinerary, and that's precisely the experience Pynest is built to deliver.</p>
+        </div>
+      </article>
+    </section>
+
+    <!-- ============================================================ -->
+    <!-- 11. SEO CONTENT BLOCK — LUXURY VILLA STAYS IN PONDICHERRY -->
+    <!-- ============================================================ -->
+    <section class="content-section" style="background:var(--cr)" aria-labelledby="seo-block-h2">
+      <article class="sec-inner">
+        <div class="sec-label">The Complete Guide</div>
+        <h2 class="sec-h2" id="seo-block-h2">Luxury Villa Stays in <em>Pondicherry</em></h2>
+        <div class="gold-rule"></div>
+        <div class="content-prose">
+          <p>If you're researching luxury villas in Pondicherry for an upcoming trip, you've likely noticed how quickly the town has grown into one of South India's most desirable villa destinations. What used to be a handful of scattered heritage homes has become a genuine collection of private pool villas, beachfront estates, and restored colonial properties — and Pynest exists to help you navigate that collection with confidence.</p>
+
+          <h3>What "luxury villa" actually means in Pondicherry</h3>
+          <p>Not every large house with a pool qualifies as a luxury villa, and it's worth knowing the difference before you book. A genuine luxury villa stay in Pondicherry combines architectural character (often restored colonial or contemporary tropical design), a private pool, dedicated staff or caretaker support, and a location that puts you close to the town's best beaches, cafés, and heritage streets. At Pynest, every villa in our collection is measured against exactly this standard before it's listed.</p>
+
+          <h3>Private pool villas: the heart of the collection</h3>
+          <p>A private pool villa Pondicherry search almost always leads travellers to two clusters: villas inside or near White Town's French Quarter, and beach-facing villas along the ECR road. Both offer very different experiences. White Town villas put you inside the town's most walkable, café-dense pocket, ideal if you want to explore on foot. Beach villas trade some of that walkability for direct sea proximity and a quieter, more resort-like feel.</p>
+
+          <h3>Beach villas along Pondicherry's coast</h3>
+          <p>A beach villa Pondicherry stay typically means waking up to the sound of the sea, with a private pool as a freshwater alternative to ocean swims. These properties suit families who want space to spread out, as well as groups looking for a self-contained weekend without needing to drive anywhere at all.</p>
+
+          <h3>Heritage stays in the French Quarter</h3>
+          <p>For travellers drawn to architecture and history, a heritage stay in White Town or the wider French Colony offers something a modern villa can't replicate — thick colonial walls, courtyard gardens, and interiors that have genuinely stood for a century or more, now restored with modern comfort layered in carefully rather than overwritten.</p>
+
+          <h3>Villas near Auroville</h3>
+          <p>Auroville villas serve a different kind of traveller — one prioritising quiet, greenery, and proximity to yoga studios, meditation spaces, and Auroville's craft economy over walkable café streets. It's an increasingly popular choice for longer, slower stays and for guests combining a Pondicherry trip with a spiritual or wellness focus.</p>
+
+          <h3>Matching the right villa to the right group</h3>
+          <p>A family villa in Pondicherry looks very different from a villa suited to a couple's weekend getaway or a group villa built for a bachelor party. Family villas prioritise multiple bedrooms, secure compounds, and child-safe pool areas. Couple stays favour smaller, more intimate properties with a strong sense of privacy. Group villas need larger shared living spaces, bigger pools, and flexible house rules around noise and guest counts. Part of Pynest's role is simply matching you to the right category rather than the biggest or flashiest listing.</p>
+
+          <h3>Weekend getaways from Chennai and Bangalore</h3>
+          <p>Pondicherry's proximity to Chennai — roughly a three-hour drive — has made it one of the default weekend getaway destinations for both Chennai and Bangalore travellers. A villa stay compresses the "unwinding" period of a short trip considerably; instead of losing your first evening settling into a hotel room, you arrive into a fully set-up home and start relaxing immediately.</p>
+
+          <h3>Vacation rentals versus villa management</h3>
+          <p>Not every vacation rental in Pondicherry comes with real support. A listing on a generic platform might get you a decent house, but no one to call if the WiFi drops or the pool needs cleaning mid-stay. Pynest's villas are actively managed, not just listed, which is the practical difference between a holiday home you're renting blind and a luxury accommodation experience you can actually rely on.</p>
+
+          <h3>How to choose the best villa in Pondicherry for your trip</h3>
+          <p>Start with your group's real priorities: walkability and café culture (White Town), direct beach access (ECR villas), or quiet and greenery (Auroville). From there, narrow by bedroom count, pool size, and budget. If you're unsure, our concierge team can shortlist two or three villas based on a short WhatsApp conversation rather than making you scroll through the entire portfolio.</p>
+
+          <h3>Booking with confidence</h3>
+          <p>Every villa on Pynest is personally inspected, priced transparently, and backed by a concierge team that's reachable throughout your stay — not just at the point of booking. Whether you're searching for the best villas in Pondicherry for a family reunion, a private pool villa for a weekend with friends, or a heritage stay in the French Quarter for a quiet anniversary, our collection is built to make that decision easier, and the stay itself genuinely memorable.</p>
+        </div>
+        <div class="mini-cta">
+          <a class="btn-gold" href="/villas/">Browse All Villas</a>
+          <a class="btn-outline" href="/blog/">Read Villa Guides</a>
+        </div>
+      </article>
+    </section>
+
+    <!-- ============================================================ -->
+    <!-- 6. FAQ -->
+    <!-- ============================================================ -->
+    <section class="content-section" aria-labelledby="faq-h2">
+      <div class="sec-inner">
+        <div class="sec-label">FAQs</div>
+        <h2 class="sec-h2" id="faq-h2">Frequently Asked <em>Questions</em></h2>
+        <div class="gold-rule"></div>
+
+        <div class="faq-list" style="margin-top:24px">
+          <details class="faq-item"><summary>Which is the best villa in Pondicherry?</summary><div class="faq-answer">The best villa depends on what you're looking for. Pynest curates handpicked private pool villas across White Town, the French Colony, ECR beach road, and Auroville, so we match you to a villa based on group size, budget, and location instead of pushing one "best" property.</div></details>
+          <details class="faq-item"><summary>Do Pynest villas have private pools?</summary><div class="faq-answer">Most villas in our collection feature a private swimming pool. You can filter by private pool availability on our villas page or ask our concierge team on WhatsApp for a curated shortlist.</div></details>
+          <details class="faq-item"><summary>Are your villas near White Town?</summary><div class="faq-answer">Yes, several villas in our portfolio sit inside or within a short walk of White Town's French Quarter, while others are located along the beach road or closer to Auroville, depending on the experience you want.</div></details>
+          <details class="faq-item"><summary>Can I book a villa for just one night?</summary><div class="faq-answer">Yes, one-night stays are available on most properties, though certain beachfront and heritage villas may have a minimum-stay requirement on weekends and holidays. Our concierge team will confirm exact availability.</div></details>
+          <details class="faq-item"><summary>Are the villas pet friendly?</summary><div class="faq-answer">A number of our villas welcome well-behaved pets. Since policies vary by property, please mention your pet while enquiring so we can shortlist pet-friendly villas for you.</div></details>
+          <details class="faq-item"><summary>Can I add extra guests beyond the base occupancy?</summary><div class="faq-answer">Most villas allow extra guests on request for an additional charge, subject to the property's maximum capacity and local safety norms. Let us know your exact headcount while booking.</div></details>
+          <details class="faq-item"><summary>Do the villas have a fully equipped kitchen?</summary><div class="faq-answer">Yes, the majority of our villas include a fully equipped kitchen so you can cook your own meals, and many hosts can also arrange a private chef or in-villa catering on request.</div></details>
+          <details class="faq-item"><summary>Is parking available at the villas?</summary><div class="faq-answer">Private, secure parking is available at almost all Pynest villas. If you're arriving by car, bike, or a rented scooter, our team will confirm parking capacity in advance.</div></details>
+          <details class="faq-item"><summary>Is WiFi available in the villas?</summary><div class="faq-answer">Yes, complimentary high-speed WiFi is provided at all Pynest villas, making them suitable for remote work, digital nomads, and corporate retreats.</div></details>
+          <details class="faq-item"><summary>Do the villas have power backup?</summary><div class="faq-answer">Most villas are equipped with power backup or an inverter to handle occasional outages, which are infrequent but possible in and around Pondicherry.</div></details>
+          <details class="faq-item"><summary>How far are the villas from the beach?</summary><div class="faq-answer">Distance varies by villa. Some of our beachfront properties open directly onto the sand, while others in White Town or Auroville are a short drive of roughly 5 to 20 minutes from the nearest beach.</div></details>
+          <details class="faq-item"><summary>What is the standard check-in and check-out time?</summary><div class="faq-answer">Standard check-in is from 2:00 PM and check-out is by 11:00 AM, though early check-in or late check-out can often be arranged based on the villa's schedule.</div></details>
+          <details class="faq-item"><summary>What is the cancellation policy?</summary><div class="faq-answer">Cancellation terms vary slightly by villa and season. Our concierge team will share the exact policy at the time of booking, and the full terms are also available on our <a href="/cancellation-policy/">cancellation policy</a> page.</div></details>
+          <details class="faq-item"><summary>Are the villas suitable for a bachelor or bachelorette party?</summary><div class="faq-answer">Yes, several of our larger private pool villas are well suited to bachelor and bachelorette groups, with space for music, pool time, and privacy away from hotel neighbours. House rules around noise and guest limits do apply.</div></details>
+          <details class="faq-item"><summary>Are the villas good for a family stay?</summary><div class="faq-answer">Absolutely. Many Pynest villas are chosen specifically for families, with multiple bedrooms, secure compounds, gardens, and pools that work well for children and grandparents alike.</div></details>
+          <details class="faq-item"><summary>Can I organise a BBQ at the villa?</summary><div class="faq-answer">Many villas have an outdoor BBQ setup or garden space where one can be arranged. Let our team know in advance so the villa host can prepare equipment and charcoal.</div></details>
+          <details class="faq-item"><summary>Can you arrange a private chef service?</summary><div class="faq-answer">Yes, private chef and in-villa catering can be arranged at most properties, ranging from home-style Tamil and Creole-French breakfasts to a full multi-course dinner.</div></details>
+          <details class="faq-item"><summary>Can you help with birthday or anniversary decorations?</summary><div class="faq-answer">Yes, our concierge team can arrange balloon décor, cakes, candlelight setups, and other celebration add-ons for birthdays, anniversaries, and proposals with advance notice.</div></details>
+          <details class="faq-item"><summary>Do you take corporate or offsite bookings?</summary><div class="faq-answer">Yes, we regularly host corporate retreats and offsite teams. We can help block multiple villas near each other, arrange meeting-friendly spaces, and coordinate group logistics.</div></details>
+          <details class="faq-item"><summary>What payment options are accepted?</summary><div class="faq-answer">We accept UPI, major debit and credit cards, and bank transfers. A booking is typically confirmed with an advance payment, with the balance payable before or at check-in.</div></details>
+          <details class="faq-item"><summary>Are Pynest villas suitable for couples looking for a private stay?</summary><div class="faq-answer">Yes, couples frequently choose our smaller private pool villas for weekend getaways and honeymoons, valuing the privacy of a standalone villa over a shared hotel property.</div></details>
+          <details class="faq-item"><summary>Do you offer villas specifically near Auroville?</summary><div class="faq-answer">Yes, our portfolio includes villas closer to Auroville for guests who want quieter surroundings, proximity to the Matrimandir, and easy access to Auroville's cafés and craft studios.</div></details>
+          <details class="faq-item"><summary>Is airport or railway station transfer available?</summary><div class="faq-answer">Our concierge team can arrange airport and railway station transfers on request, whether you are arriving from Chennai airport or Puducherry railway station.</div></details>
+          <details class="faq-item"><summary>How do I check real-time availability and pricing?</summary><div class="faq-answer">The fastest way is to message our concierge team on WhatsApp with your travel dates and group size, or browse live listings on our <a href="/villas/">villas page</a>.</div></details>
+        </div>
+
+        <div class="mini-cta">
+          <a class="btn-gold" href="https://wa.me/916382186266?text=Hi%20Pynest%2C%20I%20have%20a%20question%20about%20your%20villas." target="_blank" rel="noopener noreferrer">Ask on WhatsApp</a>
+          <a class="btn-outline" href="/contact/">Contact Us</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================================ -->
+    <!-- 18. BOTTOM SEO SECTION -->
+    <!-- ============================================================ -->
+    <section class="content-section" style="background:var(--cr)" aria-labelledby="bottom-seo-h2">
+      <article class="sec-inner">
+        <div class="sec-label">In Summary</div>
+        <h2 class="sec-h2" id="bottom-seo-h2">Why Pynest is one of the <em>best choices</em> for a villa stay in Pondicherry</h2>
+        <div class="gold-rule"></div>
+        <div class="content-prose">
+          <p>There is no shortage of ways to book a place to stay in Pondicherry today. Hotel chains have expanded along the beach road, budget guesthouses fill the lanes behind the bus stand, and a growing number of vacation rental listings promise a villa experience with a single click. Against that backdrop, it's fair to ask why Pynest, specifically, should be the way you book your next villa stay in this town — so we'll answer plainly.</p>
+
+          <p>The first reason is focus. Pynest doesn't try to be a villa platform for all of India. We work in one town, and we've built our entire portfolio, our local relationships, and our concierge knowledge around Pondicherry specifically. That focus means when you ask us whether a villa near Auroville suits a family with toddlers better than one in White Town, you're getting an answer shaped by people who actually know both neighbourhoods, not a generic recommendation engine.</p>
+
+          <p>The second reason is how we choose our villas in the first place. Every property in our collection is personally inspected before it's ever listed, and checked again periodically after. We look past the photographs to the details that actually determine whether a stay goes well: water pressure, pool maintenance, how quiet the street really is at night, whether the kitchen is genuinely usable rather than decorative. It's a slower, more deliberate way to build a portfolio than simply aggregating listings, and it's the reason our guests consistently find that what they booked matches what they arrive to.</p>
+
+          <p>The third reason is support that doesn't disappear after you've paid. A private pool villa Pondicherry booking is only as good as the help available if something goes wrong during your stay — a delayed check-in, an AC that needs attention, a last-minute request for an extra bed. Our concierge team stays reachable on WhatsApp throughout your trip, not just up to the point of confirmation, because we think that's where hospitality actually happens.</p>
+
+          <p>The fourth reason is range without compromise. Whether you're searching for a beach villa Pondicherry stay for a big family reunion, a quiet heritage stay in White Town for an anniversary, a group villa for a bachelor party, or a longer, work-friendly stay near Auroville, our portfolio spans that range while holding every property to the same standard. We would rather turn away a mediocre listing than pad our numbers with it.</p>
+
+          <p>The fifth reason is transparency. Pricing, house rules, and cancellation terms are shared clearly before you book, not buried in fine print discovered at check-in. For a luxury accommodation booking, that kind of straightforwardness matters more than it might seem — it's the difference between a stay you can plan around confidently and one that leaves room for unpleasant surprises.</p>
+
+          <p>Finally, there's the town itself. Pondicherry's blend of French colonial architecture, Tamil culture, quiet beaches, and unhurried pace is genuinely rare in India, and a villa stay is simply the right way to experience it. A hotel room can't give you a private pool at sunrise, a kitchen to cook a meal together, or a garden to sit in after everyone else has gone to bed. A Pynest villa can — and that, more than any single feature on a list, is why we believe we're one of the better ways to book your stay in this remarkable, quietly luxurious town.</p>
+        </div>
+        <div class="mini-cta">
+          <a class="btn-gold" href="/villas/">Browse Villas</a>
+          <a class="btn-outline" href="https://wa.me/916382186266?text=Hi%20Pynest%2C%20I%27d%20like%20to%20know%20more%20about%20your%20villas." target="_blank" rel="noopener noreferrer">Chat on WhatsApp</a>
+        </div>
+      </article>
+    </section>
+
     <!-- CTA BAND -->
     <section class="cta-band">
       <div class="sec-inner">
@@ -178,6 +838,13 @@
           <a class="btn-gold" href="https://wa.me/916382186266?text=Hi%20Pynest%2C%20I%27d%20like%20to%20know%20more%20about%20your%20villas." target="_blank" rel="noopener noreferrer">Chat on WhatsApp</a>
           <a class="btn-outline" href="/villas/">Browse Villas</a>
         </div>
+        <p style="margin-top:18px;font-size:.85rem">
+          <a href="/contact/">Contact Us</a> ·
+          <a href="/blog/">Villa & Travel Guides</a> ·
+          <a href="/privacy-policy/">Privacy Policy</a> ·
+          <a href="/terms-of-use/">Terms of Use</a> ·
+          <a href="/cancellation-policy/">Cancellation Policy</a>
+        </p>
       </div>
     </section>
 
