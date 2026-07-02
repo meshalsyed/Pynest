@@ -1,0 +1,50 @@
+/* ══════════════════════════════════════════════════════════════════
+   PYNEST — VILLA CARD
+   Extracted verbatim from the homepage villa showcase. Used by the
+   Villas hub page and every future villa-type/listing page so cards
+   look identical everywhere.
+   ══════════════════════════════════════════════════════════════════ */
+.villas-section{background:#12181A;position:relative;overflow:hidden}
+.villas-section::before{content:'';position:absolute;top:0;left:0;right:0;height:1px;background:linear-gradient(90deg,transparent,var(--g),transparent)}
+.villas-header{display:flex;justify-content:space-between;align-items:flex-end;margin-bottom:60px;gap:24px;flex-wrap:wrap}
+.villas-header .sec-label{color:rgba(201,169,110,.6)}
+.villas-header .sec-label::before{background:linear-gradient(90deg,var(--gd),var(--g))}
+.villas-header .sec-h2{color:var(--wh)}
+.villas-header .sec-h2 em{color:var(--gl)}
+.villas-see-all{font-family:var(--ff-b);font-size:.62rem;letter-spacing:.25em;text-transform:uppercase;color:rgba(201,169,110,.5);text-decoration:none;display:flex;align-items:center;gap:10px;transition:color .3s}
+.villas-see-all:hover{color:var(--g)}
+.villas-see-all::after{content:'→';transition:transform .3s}
+.villas-see-all:hover::after{transform:translateX(4px)}
+.villas-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
+@media(max-width:900px){.villas-grid{grid-template-columns:1fr 1fr}}
+@media(max-width:600px){.villas-grid{grid-template-columns:1fr}}
+.villa-card{position:relative;border-radius:var(--r3);overflow:hidden;background:#1C2426}
+.villa-card--featured{grid-row:span 2}
+.villa-img-wrap{overflow:hidden;position:relative;height:260px}
+.villa-img{width:100%;height:100%;object-fit:cover;transition:transform .8s cubic-bezier(.25,.46,.45,.94)}
+.villa-card:hover .villa-img{transform:scale(1.07)}
+.villa-tag{position:absolute;top:20px;left:20px;background:rgba(14,11,6,.7);backdrop-filter:blur(10px);border:1px solid rgba(201,169,110,.25);border-radius:2px;padding:6px 14px;font-family:var(--ff-b);font-size:.56rem;letter-spacing:.28em;text-transform:uppercase;color:var(--g)}
+.villa-badge{position:absolute;top:20px;right:20px;background:linear-gradient(135deg,var(--gd),var(--g));border-radius:2px;padding:5px 12px;font-family:var(--ff-b);font-size:.54rem;letter-spacing:.2em;text-transform:uppercase;color:var(--ch);font-weight:600}
+.villa-info{padding:24px}
+.villa-name{font-family:var(--ff-h);font-size:1.4rem;font-weight:500;color:var(--wh);margin-bottom:6px}
+.villa-loc{font-family:var(--ff-b);font-size:.68rem;color:rgba(255,255,255,.4);letter-spacing:.15em;display:flex;align-items:center;gap:6px;margin-bottom:16px}
+.villa-loc svg{width:12px;height:12px;fill:var(--g)}
+.villa-feats{display:flex;gap:16px;margin-bottom:18px;flex-wrap:wrap}
+.villa-feat{font-family:var(--ff-b);font-size:.62rem;color:rgba(255,255,255,.35);letter-spacing:.08em;display:flex;align-items:center;gap:6px}
+.villa-feat span{display:block;width:4px;height:4px;background:var(--gd);border-radius:50%;flex-shrink:0}
+.villa-price-row{display:flex;align-items:flex-end;justify-content:space-between;border-top:1px solid rgba(255,255,255,.06);padding-top:16px}
+.villa-price-label{font-family:var(--ff-b);font-size:.55rem;letter-spacing:.25em;text-transform:uppercase;color:rgba(255,255,255,.25)}
+.villa-price{font-family:var(--ff-h);font-size:1.6rem;font-weight:600;color:var(--g);line-height:1}
+.villa-price sub{font-size:.7rem;font-weight:300;color:rgba(201,169,110,.5)}
+.villa-wishlist{width:36px;height:36px;border-radius:50%;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.1);display:flex;align-items:center;justify-content:center;cursor:pointer;transition:all .3s;color:rgba(255,255,255,.3);font-size:16px}
+.villa-wishlist:hover{background:rgba(201,169,110,.15);border-color:var(--g);color:var(--g)}
+.villa-wishlist:focus-visible{outline:2px solid var(--g);outline-offset:2px}
+.villa-overlay{position:absolute;inset:0;background:rgba(14,11,6,.0);display:flex;align-items:center;justify-content:center;transition:background .4s;pointer-events:none}
+.villa-card:hover .villa-overlay{background:rgba(14,11,6,.12)}
+.villa-cta{opacity:0;transform:translateY(8px);transition:all .4s;pointer-events:all}
+.villa-card:hover .villa-cta{opacity:1;transform:translateY(0)}
+
+/* ─── VILLA TYPE FILTER CHIPS (new, for the Villas hub) ─── */
+.type-filters{display:flex;gap:12px;flex-wrap:wrap;margin-top:32px}
+.type-chip{font-family:var(--ff-b);font-size:.62rem;letter-spacing:.2em;text-transform:uppercase;color:rgba(255,255,255,.55);border:1px solid rgba(201,169,110,.25);border-radius:20px;padding:9px 18px;text-decoration:none;transition:all .3s;display:inline-block}
+.type-chip:hover,.type-chip.active{color:var(--ch);background:var(--g);border-color:var(--g)}

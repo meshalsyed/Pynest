@@ -1,0 +1,17 @@
+/* ══════════════════════════════════════════════════════════════════
+   PYNEST — FAQ ACCORDION
+   Extracted verbatim from the homepage FAQ section. Accordion behavior
+   (open/close, aria-expanded) is wired by /assets/js/include.js
+   (initFaqAccordions), same JS used on the homepage.
+   ══════════════════════════════════════════════════════════════════ */
+.faq-section{background:var(--iv)}
+.faq-head{text-align:center;margin-bottom:56px}
+.faq-head .gold-rule{margin:20px auto}
+.faq-grid{max-width:800px;margin:0 auto;display:flex;flex-direction:column;gap:0}
+.faq-item{border-bottom:1px solid rgba(196,176,154,.3)}
+.faq-question{font-family:var(--ff-h);font-size:1.15rem;font-weight:500;color:var(--td);padding:24px 0;cursor:pointer;display:flex;justify-content:space-between;align-items:center;gap:16px;list-style:none;transition:color .3s;background:none;border:none;width:100%;text-align:left}
+.faq-question:hover{color:var(--gd)}
+.faq-question::after{content:'＋';font-family:var(--ff-b);font-size:1.2rem;color:var(--gd);flex-shrink:0;transition:transform .3s}
+.faq-item.open .faq-question::after{transform:rotate(45deg)}
+.faq-answer{font-size:.88rem;font-weight:300;line-height:1.8;color:var(--tm);max-height:0;overflow:hidden;transition:max-height .4s ease,padding .3s}
+.faq-item.open .faq-answer{max-height:340px;padding-bottom:24px}
