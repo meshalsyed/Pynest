@@ -41,6 +41,16 @@ No build tools, no npm, no backend — plain HTML/CSS/JS.
   - ⏳ Still open: `/blog/`, `/become-host/`, `/partner/`, `/careers/`,
     `/wishlist/`, `/search/`, `/booking/`.
 
+- **Also completed:**
+  - ✅ `/become-host/` — property-owner acquisition page with benefits
+    grid, 3-step onboarding, and WhatsApp-based application form.
+  - ✅ `/partner/` — for travel agents, corporate offsites, and wedding
+    planners, with a WhatsApp-based enquiry form.
+  - ✅ `/careers/` — general hiring page. Lists the *areas* Pynest
+    typically hires for (not fabricated live job postings), with an
+    email-based application form.
+  - ⏳ Still open: `/blog/`, `/wishlist/`, `/search/`, `/booking/`.
+
 ## How pages are built
 
 Every inner page (everything except `index.html`, which stays fully
