@@ -6,8 +6,15 @@ No build tools, no npm, no backend — plain HTML/CSS/JS.
 ## Status
 
 - **Phase 1 — Homepage:** ✅ Live, untouched, treated as final (`index.html`).
-- **Phase 2 — Site structure:** 🚧 In progress. This stage adds the shared
-  component system and the first inner page (`/about/`).
+- **Phase 2 — Site structure:** 🚧 In progress.
+  - ✅ Shared component system (`/components`, `include.js`)
+  - ✅ `/about/`
+  - ✅ `/faq/` (full FAQPage schema)
+  - ✅ `/contact/` (LocalBusiness schema, WhatsApp form, map embed)
+  - ✅ `/villas/` (hub page linking to 8 villa-type pages, ItemList schema)
+  - ⏳ Individual villa-type pages, `/destinations/`, `/experiences/`,
+    `/blog/`, legal pages, `/become-host/`, `/partner/`, `/careers/` —
+    folders scaffolded, not yet built.
 
 ## How pages are built
 
