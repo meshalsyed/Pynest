@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en-IN">
+<head>
+
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-NDM6CM1XHM"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-NDM6CM1XHM', { 'anonymize_ip': true });
+  </script>
+
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover"/>
+
+  <title>Your Wishlist | Pynest Luxury Villas Pondicherry</title>
+  <meta name="description" content="Villas you've saved from the Pynest collection, stored on this device."/>
+  <link rel="canonical" href="https://pynest.in/wishlist/"/>
+  <meta name="robots" content="noindex, follow"/>
+
+  <link rel="icon" href="/favicon.ico" sizes="any"/>
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png"/>
+  <link rel="manifest" href="/manifest.webmanifest"/>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600&family=Jost:wght@200;300;400;500;600&family=Cormorant:ital,wght@1,300;1,400&display=swap" rel="stylesheet"/>
+
+  <link rel="stylesheet" href="/assets/css/base.css"/>
+  <link rel="stylesheet" href="/assets/css/inner-page.css"/>
+  <link rel="stylesheet" href="/assets/css/villa-card.css"/>
+
+  <style>
+    .search-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
+    @media(max-width:900px){.search-grid{grid-template-columns:1fr 1fr}}
+    @media(max-width:600px){.search-grid{grid-template-columns:1fr}}
+    .empty-state{text-align:center;padding:80px 20px}
+    .empty-icon{font-size:2.4rem;margin-bottom:16px;opacity:.4}
+    .empty-title{font-family:var(--ff-h);font-size:1.5rem;color:var(--td);margin-bottom:10px}
+    .empty-desc{color:var(--tm);font-size:.88rem;max-width:420px;margin:0 auto 28px;line-height:1.7}
+  </style>
+</head>
+
+<body data-nav-key="">
+
+  <a href="#main-content" class="skip-link">Skip to main content</a>
+  <div id="site-social-dock"></div>
+  <div id="site-header"></div>
+
+  <main id="main-content">
+
+    <section class="page-hero" style="min-height:32vh" aria-label="Your Wishlist">
+      <div class="page-hero-overlay" aria-hidden="true" style="background:linear-gradient(180deg,rgba(12,18,20,.75),rgba(12,18,20,.92))"></div>
+      <div class="page-hero-content">
+        <nav class="breadcrumb" aria-label="Breadcrumb">
+          <ol>
+            <li><a href="/">Home</a></li>
+            <li aria-current="page">Wishlist</li>
+          </ol>
+        </nav>
+        <h1 class="page-hero-h1" style="font-size:clamp(2rem,4.5vw,3.2rem)">Your <em>Wishlist</em></h1>
+        <p class="page-hero-desc">Saved on this device. Tap the heart on any villa card to add or remove it.</p>
+      </div>
+    </section>
+
+    <section class="content-section">
+      <div class="sec-inner">
+        <div class="search-grid" id="wishlistResults"></div>
+        <div class="empty-state" id="emptyState" hidden>
+          <div class="empty-icon" aria-hidden="true">♡</div>
+          <div class="empty-title">Nothing saved yet</div>
+          <p class="empty-desc">Browse the collection and tap the heart on any villa to save it here for later.</p>
+          <a class="btn-gold" href="/villas/">Browse Villas</a>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <div id="site-footer"></div>
+  <script src="/assets/js/villa-data.js"></script>
+  <script src="/assets/js/wishlist.js"></script>
+  <script src="/assets/js/include.js"></script>
+  <script>
+    (function(){
+      var grid = document.getElementById('wishlistResults');
+      var empty = document.getElementById('emptyState');
+
+      function waLink(v){
+        var text = "Hi Pynest, I'm interested in " + v.name + ". Please share more details.";
+        return "https://wa.me/916382186266?text=" + encodeURIComponent(text);
+      }
+
+      function cardHtml(v){
+        var badge = v.badge ? '<span class="villa-badge">' + v.badge + '</span>' : '';
+        var feats = v.feats.map(function(f){ return '<li class="villa-feat"><span aria-hidden="true"></span>' + f + '</li>'; }).join('');
+        return '' +
+          '<a href="' + waLink(v) + '" target="_blank" rel="noopener noreferrer" style="text-decoration:none;color:inherit;display:block" aria-label="Enquire about ' + v.name + '">' +
+          '<article class="villa-card reveal in" data-villa-id="' + v.id + '">' +
+            '<div class="villa-img-wrap">' +
+              '<img class="villa-img" src="' + v.img + '" alt="' + v.name + ' — Pondicherry" width="600" height="260" loading="lazy" decoding="async"/>' +
+              '<span class="villa-tag">' + v.tag + '</span>' + badge +
+            '</div>' +
+            '<div class="villa-info">' +
+              '<h3 class="villa-name">' + v.name + '</h3>' +
+              '<p class="villa-loc"><svg viewBox="0 0 24 24" width="12" height="12" aria-hidden="true" focusable="false"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg><span>' + v.loc + '</span></p>' +
+              '<ul class="villa-feats" aria-label="Villa features">' + feats + '</ul>' +
+              '<div class="villa-price-row">' +
+                '<div><div class="villa-price-label">Starting From</div><div class="villa-price">₹' + v.price.toLocaleString('en-IN') + '<sub>/night</sub></div></div>' +
+                '<button class="villa-wishlist" type="button" data-villa-id="' + v.id + '" aria-label="Remove ' + v.name + ' from wishlist" aria-pressed="true">♥</button>' +
+              '</div>' +
+            '</div>' +
+          '</article></a>';
+      }
+
+      function render(){
+        var villas = window.PYNEST_VILLAS || [];
+        var savedIds = window.PynestWishlist ? window.PynestWishlist.getIds() : [];
+        var saved = villas.filter(function(v){ return savedIds.indexOf(v.id) !== -1; });
+
+        grid.innerHTML = saved.map(cardHtml).join('');
+        empty.hidden = saved.length > 0;
+        grid.hidden = saved.length === 0;
+
+        if(window.PynestWishlist) window.PynestWishlist.wireButtons();
+      }
+
+      document.addEventListener('pynest:wishlist-changed', render);
+      document.addEventListener('DOMContentLoaded', render);
+      if(document.readyState !== 'loading') render();
+    })();
+  </script>
+</body>
+</html>
