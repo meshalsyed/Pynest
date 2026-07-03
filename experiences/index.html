@@ -90,28 +90,72 @@
   <style>
     /* Page-specific additions only — reuses existing tokens (--r4, --s3, --cr, .sec-label,
        .sec-h2, .gold-rule, .content-prose, .btn-gold, .btn-outline, .cta-actions, .reveal) */
-    .xp-card-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:26px}
+
+    /* All new components use border-box so padding never pushes them past the
+       viewport on narrow phones. */
+    .xp-card-grid, .xp-testimonial-grid, .xp-faq-list, .xp-card, .xp-testimonial,
+    .xp-faq-item, .xp-cta-inline{ box-sizing:border-box; }
+    .xp-card *, .xp-testimonial *{ box-sizing:border-box; }
+
+    .xp-card-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:26px;width:100%}
     .xp-card{background:#fff;border-radius:var(--r4);box-shadow:var(--s3);padding:24px;height:100%}
-    .xp-card h3{font-family:'Cormorant Garamond',serif;font-size:1.25rem;margin:0 0 8px}
+    .xp-card h3{font-family:'Cormorant Garamond',serif;font-size:1.25rem;margin:0 0 8px;line-height:1.3;word-break:break-word}
     .xp-card .xp-meta{font-size:.78rem;letter-spacing:.06em;text-transform:uppercase;color:var(--gold,#b8935a);display:block;margin-bottom:10px}
     .xp-card p{margin:0;font-size:.95rem;line-height:1.6;opacity:.85}
 
-    .xp-testimonial-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:26px}
+    .xp-testimonial-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:26px;width:100%}
     .xp-testimonial{background:#fff;border-radius:var(--r4);box-shadow:var(--s3);padding:28px}
     .xp-testimonial p{font-family:'Cormorant',serif;font-style:italic;font-size:1.05rem;line-height:1.7;margin:0 0 14px;opacity:.9}
     .xp-testimonial .xp-author{font-family:'Jost',sans-serif;font-size:.82rem;letter-spacing:.05em;text-transform:uppercase;color:var(--gold,#b8935a)}
 
-    .xp-faq-list{max-width:880px;margin:0 auto}
+    .xp-faq-list{max-width:880px;width:100%;margin:0 auto}
     .xp-faq-item{border-bottom:1px solid var(--cr,#eee2d2);padding:18px 0}
-    .xp-faq-item summary{cursor:pointer;font-family:'Cormorant Garamond',serif;font-size:1.1rem;list-style:none;display:flex;justify-content:space-between;align-items:center;gap:16px}
+    .xp-faq-item summary{cursor:pointer;font-family:'Cormorant Garamond',serif;font-size:1.1rem;line-height:1.4;list-style:none;display:flex;justify-content:space-between;align-items:flex-start;gap:16px}
     .xp-faq-item summary::-webkit-details-marker{display:none}
-    .xp-faq-item summary::after{content:"+";font-size:1.2rem;color:var(--gold,#b8935a);flex-shrink:0}
+    .xp-faq-item summary::after{content:"+";font-size:1.2rem;line-height:1.3;color:var(--gold,#b8935a);flex-shrink:0}
     .xp-faq-item[open] summary::after{content:"–"}
-    .xp-faq-item p{margin:10px 0 0;font-size:.93rem;line-height:1.65;opacity:.85}
+    .xp-faq-item p{margin:10px 0 0;font-size:.93rem;line-height:1.65;opacity:.85;word-break:break-word}
 
     .xp-cta-inline{display:flex;gap:16px;flex-wrap:wrap;margin-top:26px}
-    @media(max-width:600px){.xp-cta-inline{flex-direction:column}.xp-cta-inline .btn-gold,.xp-cta-inline .btn-outline{text-align:center}}
-    .xp-inline-link{color:var(--gold,#b8935a);text-decoration:underline;text-underline-offset:3px}
+    .xp-cta-inline .btn-gold, .xp-cta-inline .btn-outline{white-space:nowrap}
+    .xp-inline-link{color:var(--gold,#b8935a);text-decoration:underline;text-underline-offset:3px;word-break:break-word}
+
+    /* ---------- Responsive breakpoints ---------- */
+
+    /* Tablets */
+    @media(max-width:900px){
+      .xp-card-grid{grid-template-columns:repeat(2,1fr);gap:20px}
+      .xp-testimonial-grid{grid-template-columns:repeat(2,1fr);gap:20px}
+    }
+
+    /* Large phones / small tablets */
+    @media(max-width:640px){
+      .xp-card-grid{grid-template-columns:1fr;gap:16px}
+      .xp-testimonial-grid{grid-template-columns:1fr;gap:16px}
+      .xp-card{padding:20px}
+      .xp-testimonial{padding:22px}
+      .xp-cta-inline{flex-direction:column;gap:12px;margin-top:20px}
+      .xp-cta-inline .btn-gold, .xp-cta-inline .btn-outline{
+        text-align:center;white-space:normal;width:100%
+      }
+      /* Detail sections above (Romantic, Family, Wellness, Celebrations, Workcations)
+         use an inline style="font-size:2rem" on .sec-h2 — override it here so those
+         headings scale down on phones instead of overflowing. */
+      .exp-detail .sec-h2{ font-size:1.6rem !important; }
+    }
+
+    /* Small phones (iPhone SE / older Android, ~360px and below) */
+    @media(max-width:400px){
+      .xp-card{padding:18px}
+      .xp-card h3{font-size:1.15rem}
+      .xp-card p{font-size:.9rem}
+      .xp-testimonial{padding:18px}
+      .xp-testimonial p{font-size:1rem}
+      .xp-faq-item{padding:14px 0}
+      .xp-faq-item summary{font-size:1rem;gap:12px}
+      .xp-faq-item p{font-size:.88rem}
+      .sec-inner{padding-left:16px;padding-right:16px}
+    }
   </style>
 
 </head>
