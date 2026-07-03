@@ -51,6 +51,35 @@ No build tools, no npm, no backend — plain HTML/CSS/JS.
     email-based application form.
   - ⏳ Still open: `/blog/`, `/wishlist/`, `/search/`, `/booking/`.
 
+- **Also completed:**
+  - ✅ `/blog/` — hub + 3 articles (weekend guide, Auroville feature,
+    pool-vs-beach comparison), each with `Article` schema, related-posts
+    cross-linking, and internal links into the villas/destinations pages.
+  - ⏳ Still open: `/wishlist/`, `/search/`, `/booking/` — these are
+    functional (Phase 5–6) pages. As static HTML with no backend they
+    need a scoped decision on how much real functionality (e.g.
+    client-side search over hardcoded data, `localStorage` wishlist)
+    to build vs. leaving as a "coming soon" placeholder.
+
+- **Also completed:**
+  - ✅ `/search/` — real client-side filtering (type / bedrooms / budget)
+    over `assets/js/villa-data.js`, the shared dataset mirroring the
+    5 real listings already on the homepage.
+  - ✅ `/wishlist/` — `assets/js/wishlist.js` persists saved villa IDs
+    to `localStorage` and wires up every `.villa-wishlist` heart button
+    site-wide (villa-type pages + search), so a save made anywhere
+    shows up here. Personal/per-device only — `noindex`'d, and not a
+    substitute for a real account system once there's a backend.
+  - ✅ `/booking/` — framed honestly as "how booking works" rather than
+    a fake checkout, since there's no payment backend yet (Phase 8).
+    Explains the current WhatsApp-concierge flow step by step.
+
+**Site structure (Phase 2) is now functionally complete** — every page
+in the original brief exists and is reachable. Remaining phases
+(3–14: richer listings, real search/filter backend, booking engine,
+dashboards, CMS, AI concierge, native apps) are unstarted by design —
+this foundation is built so none of them require a rebuild.
+
 ## How pages are built
 
 Every inner page (everything except `index.html`, which stays fully
