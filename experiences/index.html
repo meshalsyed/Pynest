@@ -192,6 +192,389 @@
       .xp-faq-item p{font-size:.88rem}
       .sec-inner{padding-left:16px;padding-right:16px}
     }
+    /* ==========================================
+   EXPERIENCES GRID
+========================================== */
+
+.exp-section{
+    padding:80px 20px;
+    background:#f8fafc;
+}
+
+.sec-inner{
+    max-width:1300px;
+    margin:auto;
+}
+
+/* GRID */
+
+.exp-grid{
+    display:grid;
+    grid-template-columns:repeat(5,1fr);
+    gap:24px;
+}
+
+/* CARD */
+
+.exp-card{
+    position:relative;
+    display:block;
+    overflow:hidden;
+    border-radius:22px;
+    text-decoration:none;
+    background:#000;
+    min-height:420px;
+    transition:.45s ease;
+    box-shadow:0 12px 35px rgba(0,0,0,.12);
+}
+
+.exp-card:hover{
+    transform:translateY(-8px);
+    box-shadow:0 22px 45px rgba(0,0,0,.18);
+}
+
+/* IMAGE */
+
+.exp-img{
+    width:100%;
+    height:100%;
+    object-fit:cover;
+    display:block;
+    transition:transform .6s ease;
+}
+
+.exp-card:hover .exp-img{
+    transform:scale(1.08);
+}
+
+/* OVERLAY */
+
+.exp-overlay{
+    position:absolute;
+    inset:0;
+    background:linear-gradient(
+        to top,
+        rgba(0,0,0,.78) 5%,
+        rgba(0,0,0,.45) 40%,
+        rgba(0,0,0,.08) 100%
+    );
+    transition:.35s;
+}
+
+.exp-card:hover .exp-overlay{
+    background:linear-gradient(
+        to top,
+        rgba(0,0,0,.88),
+        rgba(0,0,0,.45),
+        rgba(0,0,0,.1)
+    );
+}
+
+/* CONTENT */
+
+.exp-body{
+    position:absolute;
+    left:24px;
+    right:24px;
+    bottom:24px;
+    color:#fff;
+    z-index:2;
+}
+
+.exp-icon{
+    width:54px;
+    height:54px;
+    border-radius:50%;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    font-size:1.4rem;
+    background:rgba(255,255,255,.18);
+    backdrop-filter:blur(8px);
+    margin-bottom:16px;
+}
+
+.exp-title{
+    font-size:1.4rem;
+    font-weight:700;
+    line-height:1.3;
+    margin-bottom:8px;
+    color:#fff;
+}
+
+.exp-sub{
+    font-size:.95rem;
+    line-height:1.6;
+    color:rgba(255,255,255,.88);
+}
+
+/* ARROW */
+
+.exp-arrow{
+    position:absolute;
+    top:20px;
+    right:20px;
+    width:48px;
+    height:48px;
+    border-radius:50%;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    background:rgba(255,255,255,.18);
+    backdrop-filter:blur(10px);
+    color:#fff;
+    font-size:22px;
+    transition:.35s;
+    z-index:3;
+}
+
+.exp-card:hover .exp-arrow{
+    transform:rotate(45deg);
+    background:#fff;
+    color:#111827;
+}
+
+/* ==========================================
+   Reveal Animation
+========================================== */
+
+.reveal{
+    opacity:0;
+    transform:translateY(45px);
+    animation:fadeUp .8s forwards;
+}
+
+.reveal-d1{
+    animation-delay:.15s;
+}
+
+.reveal-d2{
+    animation-delay:.3s;
+}
+
+.reveal-d3{
+    animation-delay:.45s;
+}
+
+.reveal-d4{
+    animation-delay:.6s;
+}
+
+@keyframes fadeUp{
+
+    to{
+
+        opacity:1;
+
+        transform:translateY(0);
+
+    }
+
+}
+
+/* ==========================================
+   LARGE DESKTOP
+========================================== */
+
+@media(max-width:1400px){
+
+.exp-grid{
+
+grid-template-columns:repeat(5,1fr);
+
+gap:20px;
+
+}
+
+.exp-card{
+
+min-height:390px;
+
+}
+
+}
+
+/* ==========================================
+   LAPTOP
+========================================== */
+
+@media(max-width:1200px){
+
+.exp-grid{
+
+grid-template-columns:repeat(3,1fr);
+
+}
+
+.exp-card{
+
+min-height:380px;
+
+}
+
+}
+
+/* ==========================================
+   TABLET
+========================================== */
+
+@media(max-width:900px){
+
+.exp-grid{
+
+grid-template-columns:repeat(2,1fr);
+
+gap:18px;
+
+}
+
+.exp-card{
+
+min-height:340px;
+
+}
+
+.exp-title{
+
+font-size:1.2rem;
+
+}
+
+.exp-icon{
+
+width:48px;
+
+height:48px;
+
+font-size:1.2rem;
+
+}
+
+}
+
+/* ==========================================
+   MOBILE
+========================================== */
+
+@media(max-width:600px){
+
+.exp-section{
+
+padding:60px 16px;
+
+}
+
+.exp-grid{
+
+grid-template-columns:1fr;
+
+gap:18px;
+
+}
+
+.exp-card{
+
+min-height:320px;
+
+border-radius:18px;
+
+}
+
+.exp-body{
+
+left:18px;
+
+right:18px;
+
+bottom:18px;
+
+}
+
+.exp-title{
+
+font-size:1.15rem;
+
+}
+
+.exp-sub{
+
+font-size:.9rem;
+
+}
+
+.exp-arrow{
+
+width:42px;
+
+height:42px;
+
+font-size:18px;
+
+top:16px;
+
+right:16px;
+
+}
+
+.exp-icon{
+
+width:44px;
+
+height:44px;
+
+font-size:1.1rem;
+
+margin-bottom:12px;
+
+}
+
+}
+
+/* ==========================================
+   SMALL MOBILE
+========================================== */
+
+@media(max-width:380px){
+
+.exp-card{
+
+min-height:280px;
+
+}
+
+.exp-title{
+
+font-size:1rem;
+
+}
+
+.exp-sub{
+
+font-size:.85rem;
+
+}
+
+.exp-arrow{
+
+width:38px;
+
+height:38px;
+
+font-size:16px;
+
+}
+
+.exp-icon{
+
+width:40px;
+
+height:40px;
+
+font-size:1rem;
+
+}
+
+}
   </style>
 
 </head>
