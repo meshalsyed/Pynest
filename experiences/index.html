@@ -120,6 +120,42 @@
     .xp-cta-inline .btn-gold, .xp-cta-inline .btn-outline{white-space:nowrap}
     .xp-inline-link{color:var(--gold,#b8935a);text-decoration:underline;text-underline-offset:3px;word-break:break-word}
 
+    /* ---------- .exp-detail / .exp-detail-img ----------
+       Not defined in base.css / inner-page.css / experience-card.css as far as
+       I can see, so defining it here. If a rule for these classes already
+       exists in experience-card.css, this one will win due to load order
+       (this file's <style> is last) — safe either way, but worth moving
+       into experience-card.css eventually so it's not duplicated. */
+    .exp-detail{
+      display:grid;
+      grid-template-columns:1fr 1fr;
+      gap:56px;
+      align-items:center;
+      margin-bottom:72px;
+    }
+    .exp-detail:last-child{ margin-bottom:0; }
+    .exp-detail-img{
+      display:block;
+      width:100%;
+      aspect-ratio:4/3; /* matches the 900x675 source images */
+      object-fit:cover;
+      border-radius:var(--r4);
+      box-shadow:var(--s3);
+    }
+    @media(max-width:860px){
+      .exp-detail{
+        grid-template-columns:1fr;
+        gap:24px;
+        margin-bottom:48px;
+        text-align:left;
+      }
+      .exp-detail-img{ aspect-ratio:16/10; }
+    }
+    @media(max-width:400px){
+      .exp-detail{ margin-bottom:36px; }
+      .exp-detail-img{ aspect-ratio:4/3; border-radius:calc(var(--r4) * 0.75); }
+    }
+
     /* ---------- Responsive breakpoints ---------- */
 
     /* Tablets */
