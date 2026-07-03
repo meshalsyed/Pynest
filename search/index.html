@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en-IN">
+<head>
+
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-NDM6CM1XHM"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-NDM6CM1XHM', { 'anonymize_ip': true });
+  </script>
+
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover"/>
+
+  <title>Search Villas in Pondicherry | Pynest</title>
+  <meta name="description" content="Search and filter Pynest's luxury villa collection in Pondicherry by type, bedrooms, and budget."/>
+  <link rel="canonical" href="https://pynest.in/search/"/>
+  <meta name="robots" content="noindex, follow"/>
+
+  <link rel="icon" href="/favicon.ico" sizes="any"/>
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png"/>
+  <link rel="manifest" href="/manifest.webmanifest"/>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600&family=Jost:wght@200;300;400;500;600&family=Cormorant:ital,wght@1,300;1,400&display=swap" rel="stylesheet"/>
+
+  <link rel="stylesheet" href="/assets/css/base.css"/>
+  <link rel="stylesheet" href="/assets/css/inner-page.css"/>
+  <link rel="stylesheet" href="/assets/css/villa-card.css"/>
+
+  <style>
+    .search-bar{background:var(--wh);border:1px solid rgba(196,176,154,.3);border-radius:var(--r3);padding:24px;display:grid;grid-template-columns:1fr 1fr 1fr auto;gap:16px;align-items:end;box-shadow:var(--s1);margin-top:-64px;position:relative;z-index:5}
+    @media(max-width:800px){.search-bar{grid-template-columns:1fr 1fr;margin-top:-40px}}
+    @media(max-width:480px){.search-bar{grid-template-columns:1fr}}
+    .search-field label{display:block;font-family:var(--ff-b);font-size:.56rem;letter-spacing:.25em;text-transform:uppercase;color:var(--ts);margin-bottom:8px}
+    .search-field select{width:100%;background:var(--cr);border:1px solid rgba(196,176,154,.3);border-radius:var(--r1);padding:12px 14px;font-family:var(--ff-b);font-size:.82rem;color:var(--td);outline:none}
+    .search-field select:focus{border-color:var(--g)}
+    .search-results-head{display:flex;justify-content:space-between;align-items:center;margin:56px 0 32px;flex-wrap:wrap;gap:12px}
+    .results-count{font-family:var(--ff-b);font-size:.78rem;color:var(--tm)}
+    .no-results{text-align:center;padding:60px 20px;color:var(--tm);font-size:.9rem}
+    .search-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
+    @media(max-width:900px){.search-grid{grid-template-columns:1fr 1fr}}
+    @media(max-width:600px){.search-grid{grid-template-columns:1fr}}
+  </style>
+</head>
+
+<body data-nav-key="villas">
+
+  <a href="#main-content" class="skip-link">Skip to main content</a>
+  <div id="site-social-dock"></div>
+  <div id="site-header"></div>
+
+  <main id="main-content">
+
+    <section class="page-hero" style="min-height:36vh" aria-label="Search Villas">
+      <div class="page-hero-bg" style="background-image:url('https://images.unsplash.com/photo-1582268611958-ebfd161ef9cf?w=1920&q=85')" aria-hidden="true"></div>
+      <div class="page-hero-overlay" aria-hidden="true"></div>
+      <div class="page-hero-content">
+        <nav class="breadcrumb" aria-label="Breadcrumb">
+          <ol>
+            <li><a href="/">Home</a></li>
+            <li aria-current="page">Search</li>
+          </ol>
+        </nav>
+        <div class="page-hero-eyebrow"><span></span> Find Your Villa</div>
+        <h1 class="page-hero-h1">Search the <em>collection</em></h1>
+      </div>
+    </section>
+
+    <section class="content-section" style="padding-top:0">
+      <div class="sec-inner">
+
+        <form class="search-bar" id="searchForm" aria-label="Villa search filters">
+          <div class="search-field">
+            <label for="fType">Villa Type</label>
+            <select id="fType">
+              <option value="">Any Type</option>
+              <option value="private-pool-villas">Private Pool</option>
+              <option value="beach-villas">Beach</option>
+              <option value="family-villas">Family</option>
+              <option value="couple-villas">Couple</option>
+              <option value="weekend-villas">Weekend</option>
+              <option value="luxury-homestays">Luxury Homestay</option>
+            </select>
+          </div>
+          <div class="search-field">
+            <label for="fBedrooms">Bedrooms</label>
+            <select id="fBedrooms">
+              <option value="">Any</option>
+              <option value="2">2+</option>
+              <option value="3">3+</option>
+              <option value="4">4+</option>
+            </select>
+          </div>
+          <div class="search-field">
+            <label for="fPrice">Max Budget / Night</label>
+            <select id="fPrice">
+              <option value="">Any Budget</option>
+              <option value="5000">Under ₹5,000</option>
+              <option value="15000">Under ₹15,000</option>
+              <option value="999999">Any Price</option>
+            </select>
+          </div>
+          <button type="button" id="clearFilters" class="btn-outline" style="color:var(--gd);border-color:rgba(201,169,110,.4)">Clear</button>
+        </form>
+
+        <div class="search-results-head">
+          <div class="results-count" id="resultsCount" aria-live="polite">Showing all villas</div>
+        </div>
+
+        <div class="search-grid" id="searchResults"></div>
+        <div class="no-results" id="noResults" hidden>
+          No villas match those filters right now. <a href="https://wa.me/916382186266?text=Hi%20Pynest%2C%20I%20couldn%27t%20find%20a%20matching%20villa%20on%20your%20search%20page.%20Can%20you%20help%3F" target="_blank" rel="noopener noreferrer" style="color:var(--gd)">Ask our concierge team</a> — we often know about listings before they're published.
+        </div>
+
+      </div>
+    </section>
+
+  </main>
+
+  <div id="site-footer"></div>
+  <script src="/assets/js/villa-data.js"></script>
+  <script src="/assets/js/wishlist.js"></script>
+  <script src="/assets/js/include.js"></script>
+  <script>
+    (function(){
+      var grid = document.getElementById('searchResults');
+      var noResults = document.getElementById('noResults');
+      var countEl = document.getElementById('resultsCount');
+      var typeSel = document.getElementById('fType');
+      var bedSel = document.getElementById('fBedrooms');
+      var priceSel = document.getElementById('fPrice');
+
+      function waLink(v){
+        var text = "Hi Pynest, I'm interested in " + v.name + ". Please share more details.";
+        return "https://wa.me/916382186266?text=" + encodeURIComponent(text);
+      }
+
+      function cardHtml(v){
+        var badge = v.badge ? '<span class="villa-badge">' + v.badge + '</span>' : '';
+        var feats = v.feats.map(function(f){ return '<li class="villa-feat"><span aria-hidden="true"></span>' + f + '</li>'; }).join('');
+        return '' +
+          '<a href="' + waLink(v) + '" target="_blank" rel="noopener noreferrer" style="text-decoration:none;color:inherit;display:block" aria-label="Enquire about ' + v.name + '">' +
+          '<article class="villa-card reveal in" data-villa-id="' + v.id + '">' +
+            '<div class="villa-img-wrap">' +
+              '<img class="villa-img" src="' + v.img + '" alt="' + v.name + ' — Pondicherry" width="600" height="260" loading="lazy" decoding="async"/>' +
+              '<span class="villa-tag">' + v.tag + '</span>' + badge +
+            '</div>' +
+            '<div class="villa-info">' +
+              '<h3 class="villa-name">' + v.name + '</h3>' +
+              '<p class="villa-loc"><svg viewBox="0 0 24 24" width="12" height="12" aria-hidden="true" focusable="false"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg><span>' + v.loc + '</span></p>' +
+              '<ul class="villa-feats" aria-label="Villa features">' + feats + '</ul>' +
+              '<div class="villa-price-row">' +
+                '<div><div class="villa-price-label">Starting From</div><div class="villa-price">₹' + v.price.toLocaleString('en-IN') + '<sub>/night</sub></div></div>' +
+                '<button class="villa-wishlist" type="button" data-villa-id="' + v.id + '" aria-label="Add ' + v.name + ' to wishlist" aria-pressed="false">♡</button>' +
+              '</div>' +
+            '</div>' +
+          '</article></a>';
+      }
+
+      function render(){
+        var villas = window.PYNEST_VILLAS || [];
+        var type = typeSel.value, minBed = parseInt(bedSel.value || '0', 10), maxPrice = parseInt(priceSel.value || '999999999', 10);
+
+        var filtered = villas.filter(function(v){
+          if(type && v.types.indexOf(type) === -1) return false;
+          if(minBed && v.bedrooms < minBed) return false;
+          if(priceSel.value && v.price > maxPrice) return false;
+          return true;
+        });
+
+        grid.innerHTML = filtered.map(cardHtml).join('');
+        noResults.hidden = filtered.length > 0;
+        countEl.textContent = filtered.length === villas.length
+          ? 'Showing all ' + villas.length + ' villas'
+          : 'Showing ' + filtered.length + ' of ' + villas.length + ' villas';
+
+        if(window.PynestWishlist) window.PynestWishlist.wireButtons();
+      }
+
+      typeSel.addEventListener('change', render);
+      bedSel.addEventListener('change', render);
+      priceSel.addEventListener('change', render);
+      document.getElementById('clearFilters').addEventListener('click', function(){
+        typeSel.value = ''; bedSel.value = ''; priceSel.value = '';
+        render();
+      });
+
+      document.addEventListener('DOMContentLoaded', render);
+      if(document.readyState !== 'loading') render();
+    })();
+  </script>
+</body>
+</html>
