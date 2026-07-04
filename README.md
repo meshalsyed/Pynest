@@ -5,85 +5,63 @@ No build tools, no npm, no backend — plain HTML/CSS/JS.
 
 ## Status
 
-- **Phase 1 — Homepage:** ✅ Live, untouched, treated as final (`index.html`).
-- **Phase 2 — Site structure:** 🚧 In progress.
-  - ✅ Shared component system (`/components`, `include.js`)
-  - ✅ `/about/`
-  - ✅ `/faq/` (full FAQPage schema)
-  - ✅ `/contact/` (LocalBusiness schema, WhatsApp form, map embed)
-  - ✅ `/villas/` (hub page linking to 8 villa-type pages, ItemList schema)
-  - ✅ 8 villa-type pages, each with unique SEO title/description and
-    BreadcrumbList schema — populated with Pynest's real listed
-    properties (Lakshmi Villa, Luken Bay Villa, Pynest Hut House Villa,
-    3BHK Private Beach House Villa, Vintage House 4BHK). Categories with
-    no confirmed matching property yet (French Quarter, Pet Friendly)
-    ship with honest editorial copy and a concierge CTA instead of
-    fabricated listings.
-  - ⏳ `/destinations/`, `/experiences/`, `/blog/`, legal pages,
-    `/become-host/`, `/partner/`, `/careers/` — folders scaffolded,
-    not yet built.
-  - ✅ `/destinations/` hub + 4 destination guides (White Town, Auroville,
-    Serenity Beach, Paradise Beach) with `TouristAttraction` schema.
-    Auroville page links to the real Pynest villa located there
-    (Vintage House 4BHK); beach pages cross-link to the Beach Villas
-    category rather than naming an unconfirmed exact property.
-  - ⏳ `/experiences/`, `/blog/`, legal pages, `/become-host/`,
-    `/partner/`, `/careers/` — folders scaffolded, not yet built.
+Every page in the site is built, interconnected, and reachable through the
+navbar, footer, and/or in-page links. There are no orphan pages and no
+legacy duplicate files.
 
-- **Also completed this stage:**
-  - ✅ `/experiences/` — expands the homepage's 5 experience categories
-    (Romantic, Family, Wellness, Celebrations, Workcation) into full
-    detail sections, each cross-linked to the relevant villa page.
-  - ✅ `/privacy-policy/`, `/terms-of-use/`, `/cancellation-policy/` —
-    template legal pages. **These are general templates and have not
-    been reviewed by a lawyer** — have them checked before relying on
-    them for compliance.
-  - ⏳ Still open: `/blog/`, `/become-host/`, `/partner/`, `/careers/`,
-    `/wishlist/`, `/search/`, `/booking/`.
+- **Homepage** (`index.html`) — full villa showcase (8 listed properties),
+  experiences, destinations, testimonials, FAQ, and a WhatsApp-based
+  enquiry flow. Uses its own inline `<style>`/`<script>` (kept
+  self-contained for performance) but now shares the same nav structure,
+  wishlist system, and footer link set as every inner page.
+- **`/villas/`** — hub page linking to 8 villa-type pages (private pool,
+  beach, French quarter, family, couple, pet-friendly, weekend,
+  luxury homestays), each with unique SEO metadata and BreadcrumbList
+  schema, populated with Pynest's real listed properties. Categories with
+  no confirmed matching property (French Quarter, Pet Friendly) show
+  honest "coming soon" copy with a concierge CTA instead of fabricated
+  listings.
+- **`/destinations/`** — hub + 4 guides (White Town, Auroville, Serenity
+  Beach, Paradise Beach) with `TouristAttraction` schema.
+- **`/experiences/`** — expands the homepage's experience categories into
+  full detail sections, cross-linked to relevant villas.
+- **`/blog/`** — hub + 3 articles, each with `Article` schema and
+  related-post cross-linking.
+- **`/about/`, `/faq/`, `/contact/`, `/become-host/`, `/partner/`,
+  `/careers/`, `/booking/`** — fully built with unique metadata and
+  WhatsApp/email based enquiry flows (no payment backend yet).
+- **`/search/`** — client-side filtering (type / bedrooms / budget) over
+  `assets/js/villa-data.js`, the single shared dataset that also powers
+  the homepage cards and the wishlist page.
+- **`/wishlist/`** — see [Wishlist system](#wishlist-system) below.
+- **`/privacy-policy/`, `/terms-of-use/`, `/cancellation-policy/`** —
+  template legal pages. **These are general templates and have not been
+  reviewed by a lawyer** — have them checked before relying on them for
+  compliance.
+- **`404.html`** — branded not-found page with links back into the site.
 
-- **Also completed:**
-  - ✅ `/become-host/` — property-owner acquisition page with benefits
-    grid, 3-step onboarding, and WhatsApp-based application form.
-  - ✅ `/partner/` — for travel agents, corporate offsites, and wedding
-    planners, with a WhatsApp-based enquiry form.
-  - ✅ `/careers/` — general hiring page. Lists the *areas* Pynest
-    typically hires for (not fabricated live job postings), with an
-    email-based application form.
-  - ⏳ Still open: `/blog/`, `/wishlist/`, `/search/`, `/booking/`.
+## Wishlist system
 
-- **Also completed:**
-  - ✅ `/blog/` — hub + 3 articles (weekend guide, Auroville feature,
-    pool-vs-beach comparison), each with `Article` schema, related-posts
-    cross-linking, and internal links into the villas/destinations pages.
-  - ⏳ Still open: `/wishlist/`, `/search/`, `/booking/` — these are
-    functional (Phase 5–6) pages. As static HTML with no backend they
-    need a scoped decision on how much real functionality (e.g.
-    client-side search over hardcoded data, `localStorage` wishlist)
-    to build vs. leaving as a "coming soon" placeholder.
+Client-side only (no backend/accounts yet), built on three files:
 
-- **Also completed:**
-  - ✅ `/search/` — real client-side filtering (type / bedrooms / budget)
-    over `assets/js/villa-data.js`, the shared dataset mirroring the
-    5 real listings already on the homepage.
-  - ✅ `/wishlist/` — `assets/js/wishlist.js` persists saved villa IDs
-    to `localStorage` and wires up every `.villa-wishlist` heart button
-    site-wide (villa-type pages + search), so a save made anywhere
-    shows up here. Personal/per-device only — `noindex`'d, and not a
-    substitute for a real account system once there's a backend.
-  - ✅ `/booking/` — framed honestly as "how booking works" rather than
-    a fake checkout, since there's no payment backend yet (Phase 8).
-    Explains the current WhatsApp-concierge flow step by step.
+- `assets/js/villa-data.js` — single source of truth for villa data
+  (id, name, price, features, image, category, url). Used by search,
+  wishlist, and the homepage.
+- `assets/js/wishlist.js` — persists saved villa IDs to `localStorage`
+  (`pynest_wishlist_v1`), wires up every `.villa-wishlist[data-villa-id]`
+  heart button site-wide, paints the navbar badge (`#wishlistCount`),
+  and exposes `window.PynestWishlist` (`getIds`, `isSaved`, `toggle`,
+  `clearAll`, `wireButtons`, `paintBadge`).
+- `/wishlist/index.html` — renders saved villas from `villa-data.js`,
+  with a "Clear All" action and a dedicated empty state. `noindex`'d
+  since it's personal, per-device data.
 
-**Site structure (Phase 2) is now functionally complete** — every page
-in the original brief exists and is reachable. Remaining phases
-(3–14: richer listings, real search/filter backend, booking engine,
-dashboards, CMS, AI concierge, native apps) are unstarted by design —
-this foundation is built so none of them require a rebuild.
+A save made from any villa card — homepage, a villa-type page, or
+search results — shows up here immediately and survives a refresh.
 
 ## How pages are built
 
-Every inner page (everything except `index.html`, which stays fully
-self-contained) follows this pattern:
+Every inner page follows this pattern:
 
 ```html
 <body data-nav-key="about">
@@ -95,73 +73,84 @@ self-contained) follows this pattern:
   </main>
 
   <div id="site-footer"></div>
+  <script src="/assets/js/villa-data.js"></script>
+  <script src="/assets/js/wishlist.js"></script>
   <script src="/assets/js/include.js"></script>
 </body>
 ```
 
 `/assets/js/include.js` fetches `/components/navbar.html`,
-`/components/footer.html`, and `/components/social-dock.html` and injects
-them into the placeholder `<div>`s above. `data-nav-key` on `<body>`
-auto-highlights the matching link in the navbar.
-
-Because all component/asset paths are **absolute** (start with `/`), this
-works identically no matter how deep a page lives
+`/components/footer.html`, and `/components/social-dock.html`, injects
+them into the placeholder `<div>`s above, auto-highlights the current
+nav link via `data-nav-key`, and wires the mobile hamburger menu.
+Because all component/asset paths are **absolute** (start with `/`),
+this works identically no matter how deep a page lives
 (e.g. `/villas/private-pool-villas/`).
+
+`index.html` keeps its own inline `<style>`/`<script>` copy of the same
+nav/footer/wishlist markup (for homepage load performance) — kept in
+sync by hand when the shared components change.
 
 ## Design system
 
-All shared tokens (colors, fonts, spacing, shadows) and shared components
-(nav, footer, buttons, social dock, scroll-reveal) live in:
-
-- `assets/css/base.css` — extracted verbatim from the homepage. Do not
-  redesign; only extend.
-- `assets/css/inner-page.css` — new layout patterns for inner pages
-  (page hero, breadcrumb, content prose, value/team grids, CTA band),
-  built entirely from the same tokens.
-
-`index.html` keeps its own inline `<style>`/`<script>` and is not wired
-into this system — it is treated as final, production-approved.
+- `assets/css/base.css` — shared tokens (colors, fonts, spacing,
+  shadows) plus nav, footer, buttons, social dock, scroll-reveal, and
+  the mobile nav toggle.
+- `assets/css/inner-page.css` — layout patterns for inner pages (page
+  hero, breadcrumb, content prose, value/team grids, CTA band).
+- `assets/css/villa-card.css` — the villa card component, shared by the
+  homepage, `/villas/`, every villa-type page, search, and wishlist.
+- `assets/css/blog-card.css` — the blog card component.
+- `assets/css/faq.css` — FAQ accordion styling.
 
 ## Folder structure
 
 ```
 /
-├── index.html              ← homepage (final, do not touch)
+├── index.html              ← homepage
 ├── 404.html
 ├── robots.txt
 ├── sitemap.xml
 ├── CNAME
 ├── manifest.webmanifest
 ├── browserconfig.xml
+├── schema.json              ← standalone reference copy of the sitewide Organization schema
 ├── assets/
-│   ├── css/                ← base.css, inner-page.css
-│   ├── js/                 ← include.js
-│   ├── fonts/
-│   ├── icons/
-│   └── images/
-│       ├── villas/ destinations/ blog/ testimonials/ gallery/ team/ brand/ og/
-├── components/              ← navbar.html, footer.html, social-dock.html
-├── about/                   ← ✅ built (sample pattern page)
-├── villas/ villa-details/ destinations/ experiences/ blog/ faq/
-├── privacy-policy/ cancellation-policy/ terms-of-use/
-├── careers/ become-host/ partner/ wishlist/ search/ booking/
-└── contact/
+│   ├── css/                 ← base.css, inner-page.css, villa-card.css, blog-card.css, faq.css
+│   ├── js/                  ← include.js, villa-data.js, wishlist.js
+│   └── images/               brand/ about/ og/
+├── images/villas/            ← real listing photography (villa1–8.webp)
+├── components/               ← navbar.html, footer.html, social-dock.html
+├── about/ contact/ faq/ booking/ become-host/ partner/ careers/
+├── villas/                   ← hub + 8 villa-type pages
+├── destinations/              ← hub + 4 destination guides
+├── experiences/ blog/ search/ wishlist/
+└── privacy-policy/ terms-of-use/ cancellation-policy/
 ```
 
-Empty page folders are scaffolded and ready for content in the next
-stages — no restructuring will be needed as they fill in.
+All page folders use the clean-URL pattern (`/about/index.html` served
+as `/about/`) — there are no legacy top-level `.html` duplicates.
+
+## SEO
+
+Every indexable page has a unique title, meta description, canonical
+URL, Open Graph + Twitter Card tags (backed by real branded images in
+`assets/images/og/`), robots meta, and JSON-LD (Organization,
+LocalBusiness, BreadcrumbList, FAQPage, or TouristAttraction schema as
+appropriate). `sitemap.xml` lists every public URL; `/wishlist/` and
+`404.html` are intentionally excluded and `noindex`'d.
 
 ## Before deploying
 
-1. Add the real logo file at `assets/images/brand/pynestlogo.png`
-   (inner pages reference it there; the homepage still uses its own
-   `/pynestlogo.png` at the repo root — keep both in sync).
-2. Add `favicon.ico` and `apple-touch-icon.png` at the repo root.
-3. Replace Unsplash placeholder imagery on the About page with real
-   Pynest photography once available.
+1. Replace the Unsplash placeholder imagery (About page, villa-type
+   hero backgrounds) with real Pynest photography once available.
+2. Have the legal template pages reviewed by a lawyer before relying on
+   them for compliance.
+3. `submit.php` is a stub — wire it to real form-handling (or remove it)
+   before depending on any non-WhatsApp contact form.
 
 ## Roadmap
 
-See project brief — Phases 3–14 (villa listings, details, search/filters,
-booking engine, dashboards, CMS, AI concierge, native apps) will be added
-incrementally without requiring a rebuild of this foundation.
+Richer listings, a real search/filter backend, a booking engine, guest
+dashboards, a CMS, and native apps are unstarted by design — this
+foundation is built so none of them require a rebuild.
