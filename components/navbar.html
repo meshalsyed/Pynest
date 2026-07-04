@@ -16,10 +16,11 @@
            decoding="async"/>
     </a>
 
-    <ul class="nav-links" role="list">
+    <ul class="nav-links" id="navLinks" role="list">
       <li><a href="/villas/" data-nav-key="villas" aria-label="View Pynest signature villa collection">Villas</a></li>
       <li><a href="/experiences/" data-nav-key="experiences" aria-label="Explore curated Pondicherry experiences">Experiences</a></li>
       <li><a href="/destinations/" data-nav-key="destinations" aria-label="Discover Pondicherry as a destination">Pondicherry</a></li>
+      <li><a href="/blog/" data-nav-key="blog" aria-label="Read the Pynest Pondicherry travel journal">Journal</a></li>
       <li><a href="/about/" data-nav-key="about" aria-label="About Pynest">About</a></li>
       <li><a href="/faq/" data-nav-key="faq" aria-label="Frequently asked questions about Pynest villas">FAQ</a></li>
       <li>
@@ -29,11 +30,20 @@
       </li>
     </ul>
 
+    <a href="/wishlist/" class="nav-wishlist" data-nav-key="wishlist" aria-label="View your saved villa wishlist">
+      <svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true" focusable="false"><path d="M12 21s-7.5-4.7-10.2-9.1C-.1 8.3 1.4 4.5 5 3.6c2-.5 4 .3 5 2 1-1.7 3-2.5 5-2 3.6.9 5.1 4.7 3.2 8.3C19.5 16.3 12 21 12 21z" fill="none" stroke="currentColor" stroke-width="1.6"/></svg>
+      <span id="wishlistCount" class="nav-wishlist-badge" hidden>0</span>
+    </a>
+
     <button class="nav-cta"
             type="button"
             aria-label="Get priority access to Pynest luxury villas in Pondicherry"
             onclick="window.open('https://wa.me/916382186266?text=Hi%20Pynest%2C%20I%27m%20interested%20in%20your%20luxury%20villas%20and%20homestays%20in%20Pondicherry.%20Please%20share%20more%20details.', '_blank')">
       Priority Access
+    </button>
+
+    <button class="nav-toggle" id="navToggle" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="navLinks">
+      <span></span><span></span><span></span>
     </button>
   </nav>
 </header>
