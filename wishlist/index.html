@@ -41,7 +41,7 @@
   </style>
 </head>
 
-<body data-nav-key="">
+<body data-nav-key="wishlist">
 
   <a href="#main-content" class="skip-link">Skip to main content</a>
   <div id="site-social-dock"></div>
@@ -65,6 +65,13 @@
 
     <section class="content-section">
       <div class="sec-inner">
+        <div class="villas-header" id="wishlistHeader" hidden style="margin-bottom:32px">
+          <div>
+            <div class="sec-label" style="color:var(--gd)">Saved Villas</div>
+            <h2 class="sec-h2" style="color:var(--td)" id="wishlistHeading"></h2>
+          </div>
+          <button type="button" class="btn-outline" id="clearWishlistBtn" aria-label="Remove all villas from your wishlist">Clear All</button>
+        </div>
         <div class="search-grid" id="wishlistResults"></div>
         <div class="empty-state" id="emptyState" hidden>
           <div class="empty-icon" aria-hidden="true">♡</div>
@@ -85,6 +92,17 @@
     (function(){
       var grid = document.getElementById('wishlistResults');
       var empty = document.getElementById('emptyState');
+      var header = document.getElementById('wishlistHeader');
+      var heading = document.getElementById('wishlistHeading');
+      var clearBtn = document.getElementById('clearWishlistBtn');
+
+      if(clearBtn){
+        clearBtn.addEventListener('click', function(){
+          if(window.PynestWishlist && window.confirm('Remove all villas from your wishlist?')){
+            window.PynestWishlist.clearAll();
+          }
+        });
+      }
 
       function waLink(v){
         var text = "Hi Pynest, I'm interested in " + v.name + ". Please share more details.";
@@ -121,6 +139,8 @@
         grid.innerHTML = saved.map(cardHtml).join('');
         empty.hidden = saved.length > 0;
         grid.hidden = saved.length === 0;
+        if(header){ header.hidden = saved.length === 0; }
+        if(heading){ heading.innerHTML = saved.length + (saved.length === 1 ? ' Villa Saved' : ' Villas Saved'); }
 
         if(window.PynestWishlist) window.PynestWishlist.wireButtons();
       }
