@@ -1,0 +1,21 @@
+/* ══════════════════════════════════════════════════════════════════
+   PYNEST — BLOG CARD
+   Card styling for /blog/ hub and "related articles" grids on each
+   post. Sits on light content sections, so it mirrors .value-card
+   (see inner-page.css) rather than the dark .villa-card treatment.
+   ══════════════════════════════════════════════════════════════════ */
+.blog-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:28px;margin-top:8px}
+@media(max-width:900px){.blog-grid{grid-template-columns:1fr 1fr}}
+@media(max-width:600px){.blog-grid{grid-template-columns:1fr}}
+
+.blog-card{display:block;background:var(--wh);border:1px solid rgba(196,176,154,.25);border-radius:var(--r3);overflow:hidden;text-decoration:none;color:inherit;transition:transform .35s,box-shadow .35s,border-color .35s}
+.blog-card:hover{transform:translateY(-6px);box-shadow:var(--s2);border-color:rgba(201,169,110,.35)}
+
+.blog-card-img-wrap{overflow:hidden;position:relative;height:200px;background:var(--cr)}
+.blog-card-img{width:100%;height:100%;object-fit:cover;transition:transform .8s cubic-bezier(.25,.46,.45,.94)}
+.blog-card:hover .blog-card-img{transform:scale(1.07)}
+
+.blog-card-body{padding:24px}
+.blog-card-meta{font-family:var(--ff-b);font-size:.6rem;letter-spacing:.22em;text-transform:uppercase;color:var(--gd);margin-bottom:10px}
+.blog-card-title{font-family:var(--ff-h);font-size:1.25rem;font-weight:500;line-height:1.3;color:var(--td);margin-bottom:10px}
+.blog-card-excerpt{font-size:.84rem;font-weight:300;line-height:1.75;color:var(--tm)}
