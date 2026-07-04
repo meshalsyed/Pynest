@@ -47,6 +47,11 @@
     btn.style.borderColor = saved ? "var(--g)" : "";
   }
 
+  function clearAll(){
+    setIds([]);
+    document.dispatchEvent(new CustomEvent("pynest:wishlist-changed", { detail: { ids: [] } }));
+  }
+
   function wireButtons(){
     document.querySelectorAll(".villa-wishlist[data-villa-id]").forEach(function(btn){
       paintButton(btn);
@@ -61,9 +66,21 @@
     });
   }
 
-  document.addEventListener("DOMContentLoaded", wireButtons);
-  // Re-wire after include.js injects components (some pages render cards after fetch)
-  document.addEventListener("pynest:components-ready", wireButtons);
+  /* ── Navbar badge ──────────────────────────────────────────
+     Any injected navbar containing #wishlistCount gets the live
+     saved-villa count painted in, and hidden entirely at zero. */
+  function paintBadge(){
+    var badge = document.getElementById("wishlistCount");
+    if(!badge) return;
+    var n = getIds().length;
+    badge.textContent = n;
+    badge.hidden = n === 0;
+  }
 
-  window.PynestWishlist = { getIds: getIds, isSaved: isSaved, toggle: toggle, wireButtons: wireButtons };
+  document.addEventListener("DOMContentLoaded", function(){ wireButtons(); paintBadge(); });
+  // Re-wire after include.js injects components (some pages render cards after fetch)
+  document.addEventListener("pynest:components-ready", function(){ wireButtons(); paintBadge(); });
+  document.addEventListener("pynest:wishlist-changed", paintBadge);
+
+  window.PynestWishlist = { getIds: getIds, isSaved: isSaved, toggle: toggle, clearAll: clearAll, wireButtons: wireButtons, paintBadge: paintBadge };
 })();

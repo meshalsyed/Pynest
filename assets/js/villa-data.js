@@ -70,5 +70,44 @@ window.PYNEST_VILLAS = [
     img: "https://pynest.in/images/villas/villa5.webp",
     types: ["private-pool-villas", "family-villas", "luxury-homestays"],
     url: "/villas/private-pool-villas/"
+  },
+  {
+    id: "grandvilla",
+    name: "Pynest Grand Villa (SPR Property)",
+    tag: "Premium Villa",
+    badge: null,
+    loc: "SPR Property, Puducherry",
+    bedrooms: 3,
+    price: 12000,
+    feats: ["3BHK Villa", "Ideal for 6\u20138 Guests", "Swimming Pool", "Badminton Court"],
+    img: "https://pynest.in/images/villas/villa6.webp",
+    types: ["private-pool-villas", "family-villas"],
+    url: "/villas/private-pool-villas/"
+  },
+  {
+    id: "aurosunrise",
+    name: "Pynest Auro Sunrise Resort",
+    tag: "Luxury Beach Resort",
+    badge: null,
+    loc: "Auroville, Puducherry",
+    bedrooms: null,
+    price: 3000,
+    feats: ["Swimming Pool", "Complimentary Breakfast", "24\u00d77 Private Beach Access"],
+    img: "https://pynest.in/images/villas/villa7.webp",
+    types: ["beach-villas", "weekend-villas"],
+    url: "/villas/beach-villas/"
+  },
+  {
+    id: "vintagehouse2",
+    name: "Pynest Vintage House",
+    tag: "Private 4BHK Villa",
+    badge: null,
+    loc: "Auroville, Puducherry \u2014 300m from Auroville Beach",
+    bedrooms: 4,
+    price: 15000,
+    feats: ["Private Swimming Pool (Adults & Kids)", "Indoor Games", "In-house Cafe", "Fire Camp"],
+    img: "https://pynest.in/images/villas/villa8.webp",
+    types: ["private-pool-villas", "luxury-homestays"],
+    url: "/villas/private-pool-villas/"
   }
 ];

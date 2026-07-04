@@ -26,7 +26,7 @@
   function markActiveNavLink(){
     var current = (document.body.getAttribute("data-nav-key") || "").trim();
     if(!current) return;
-    document.querySelectorAll("#nav .nav-links a[data-nav-key]").forEach(function(a){
+    document.querySelectorAll("#nav .nav-links a[data-nav-key], #nav .nav-wishlist[data-nav-key]").forEach(function(a){
       if(a.getAttribute("data-nav-key") === current){
         a.classList.add("active");
         a.setAttribute("aria-current", "page");
@@ -37,6 +37,27 @@
   function setFooterYear(){
     var y = document.getElementById("footer-year");
     if(y) y.textContent = new Date().getFullYear();
+  }
+
+  function initMobileNav(){
+    var toggle = document.getElementById("navToggle");
+    var links = document.getElementById("navLinks");
+    if(!toggle || !links) return;
+    function close(){
+      links.classList.remove("open");
+      toggle.setAttribute("aria-expanded", "false");
+      toggle.setAttribute("aria-label", "Open menu");
+    }
+    function open(){
+      links.classList.add("open");
+      toggle.setAttribute("aria-expanded", "true");
+      toggle.setAttribute("aria-label", "Close menu");
+    }
+    toggle.addEventListener("click", function(){
+      links.classList.contains("open") ? close() : open();
+    });
+    links.querySelectorAll("a").forEach(function(a){ a.addEventListener("click", close); });
+    document.addEventListener("keydown", function(e){ if(e.key === "Escape") close(); });
   }
 
   function initNavScroll(){
@@ -92,6 +113,7 @@
       markActiveNavLink();
       setFooterYear();
       initNavScroll();
+      initMobileNav();
       document.dispatchEvent(new CustomEvent("pynest:components-ready"));
     });
 
