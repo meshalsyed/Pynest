@@ -207,6 +207,7 @@
   <div id="site-footer"></div>
   <script src="/assets/js/villa-data.js"></script>
   <script src="/assets/js/wishlist.js"></script>
+  <script src="/assets/js/form-validation.js"></script>
   <script src="/assets/js/include.js"></script>
   <script>
     (function(){
@@ -214,14 +215,19 @@
       if(!form) return;
       form.addEventListener('submit', function(e){
         e.preventDefault();
-        var name = document.getElementById('cName').value.trim();
-        var email = document.getElementById('cEmail').value.trim();
-        var phone = document.getElementById('cPhone').value.trim();
+        var nameInput = document.getElementById('cName');
+        var emailInput = document.getElementById('cEmail');
+        var phoneInput = document.getElementById('cPhone');
+        var name = nameInput.value.trim();
+        var email = emailInput.value.trim();
+        var phone = phoneInput.value.trim();
         var message = document.getElementById('cMessage').value.trim();
-        if(!name || !email || !phone){
-          alert('Please fill in your name, email, and mobile number.');
-          return;
-        }
+        var valid = window.PynestForm.validateRequired([
+          { input: nameInput, label: 'Full name' },
+          { input: emailInput, label: 'Email' },
+          { input: phoneInput, label: 'Mobile number' }
+        ]);
+        if(!valid) return;
         var msg = "Hi Pynest, I'd like to get in touch.\n\nName: " + name +
                    "\nEmail: " + email + "\nMobile: " + phone +
                    (message ? ("\nMessage: " + message) : "");
