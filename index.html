@@ -2687,17 +2687,20 @@ z-index:999999;">
 
     <div style="
     width:340px;
+    max-width:90%;
     background:#fff;
     border-radius:18px;
     padding:25px;
     text-align:center;
     box-shadow:0 20px 50px rgba(0,0,0,.25);">
 
-        <img src="/apple-touch-icon.png" width="70">
+        <img src="/apple-touch-icon.png" width="70" alt="PyNest">
 
         <h2>Install PyNest</h2>
 
-        <p>Install our app for faster booking and a better experience.</p>
+        <p id="installText">
+            Install our app for faster booking and a better experience.
+        </p>
 
         <button id="installBtn"
         style="background:#D4AF72;color:#fff;border:none;padding:12px 25px;border-radius:10px;cursor:pointer;">
@@ -2706,7 +2709,7 @@ z-index:999999;">
 
         <br><br>
 
-        <button onclick="document.getElementById('installPopup').style.display='none'"
+        <button id="laterBtn"
         style="background:none;border:none;color:#777;cursor:pointer;">
             Maybe Later
         </button>
@@ -2716,25 +2719,64 @@ z-index:999999;">
 </div>
 
 <script>
+// Register Service Worker
 if ('serviceWorker' in navigator) {
     navigator.serviceWorker.register('/service-worker.js');
 }
 
-let deferredPrompt;
+let deferredPrompt = null;
 
-window.addEventListener('beforeinstallprompt', (e) => {
+const popup = document.getElementById('installPopup');
+const installBtn = document.getElementById('installBtn');
+const installText = document.getElementById('installText');
+const laterBtn = document.getElementById('laterBtn');
 
-    e.preventDefault();
+// Detect iPhone/iPad
+const isIOS = /iphone|ipad|ipod/i.test(navigator.userAgent);
 
-    deferredPrompt = e;
+// Detect if already installed
+const isStandalone =
+    window.matchMedia('(display-mode: standalone)').matches ||
+    window.navigator.standalone === true;
 
-    document.getElementById('installPopup').style.display='flex';
+// Don't show if already installed
+if (!isStandalone) {
 
-});
+    // iPhone/iPad
+    if (isIOS) {
 
-document.getElementById('installBtn').onclick = async function(){
+        popup.style.display = "flex";
 
-    if(!deferredPrompt) return;
+        installText.innerHTML = `
+            To install <strong>PyNest</strong>:<br><br>
+            1️⃣ Tap the <strong>Share</strong> button (⬆️)<br>
+            2️⃣ Select <strong>Add to Home Screen</strong><br>
+            3️⃣ Tap <strong>Add</strong>
+        `;
+
+        installBtn.style.display = "none";
+
+    } else {
+
+        // Android/Desktop
+        window.addEventListener('beforeinstallprompt', (e) => {
+
+            e.preventDefault();
+
+            deferredPrompt = e;
+
+            popup.style.display = "flex";
+
+        });
+
+    }
+
+}
+
+// Install button
+installBtn.addEventListener('click', async () => {
+
+    if (!deferredPrompt) return;
 
     deferredPrompt.prompt();
 
@@ -2742,9 +2784,19 @@ document.getElementById('installBtn').onclick = async function(){
 
     deferredPrompt = null;
 
-    document.getElementById('installPopup').style.display='none';
+    popup.style.display = "none";
 
-};
+});
+
+// Close popup
+laterBtn.addEventListener('click', () => {
+    popup.style.display = "none";
+});
+
+// Hide popup after installation
+window.addEventListener('appinstalled', () => {
+    popup.style.display = "none";
+});
 </script>
 </body>
 </html>
