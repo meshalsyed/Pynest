@@ -64,6 +64,7 @@
     .apply-form textarea{resize:vertical;min-height:90px}
     .apply-form input::placeholder,.apply-form textarea::placeholder{color:rgba(255,255,255,.2)}
     .apply-form input:focus,.apply-form select:focus,.apply-form textarea:focus{border-color:var(--g);background:rgba(201,169,110,.05)}
+    .apply-form input:focus-visible,.apply-form select:focus-visible,.apply-form textarea:focus-visible{outline:2px solid var(--g);outline-offset:2px}
   </style>
 </head>
 
@@ -178,6 +179,7 @@
   <div id="site-footer"></div>
   <script src="/assets/js/villa-data.js"></script>
   <script src="/assets/js/wishlist.js"></script>
+  <script src="/assets/js/form-validation.js"></script>
   <script src="/assets/js/include.js"></script>
   <script>
     (function(){
@@ -185,14 +187,17 @@
       if(!form) return;
       form.addEventListener('submit', function(e){
         e.preventDefault();
-        var name = document.getElementById('crName').value.trim();
-        var email = document.getElementById('crEmail').value.trim();
+        var nameInput = document.getElementById('crName');
+        var emailInput = document.getElementById('crEmail');
+        var name = nameInput.value.trim();
+        var email = emailInput.value.trim();
         var area = document.getElementById('crArea').value;
         var message = document.getElementById('crMessage').value.trim();
-        if(!name || !email){
-          alert('Please fill in your name and email.');
-          return;
-        }
+        var valid = window.PynestForm.validateRequired([
+          { input: nameInput, label: 'Full name' },
+          { input: emailInput, label: 'Email' }
+        ]);
+        if(!valid) return;
         var subject = "Careers enquiry — " + (area || "General");
         var body = "Name: " + name + "\\nEmail: " + email +
                    (area ? ("\\nArea of Interest: " + area) : "") +
