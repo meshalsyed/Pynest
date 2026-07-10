@@ -133,3 +133,62 @@ footer{background:#0D1315;padding:72px 5vw 36px;border-top:1px solid rgba(212,17
 /* ─── FORM VALIDATION (accessible, inline) ─── */
 .field-error{display:block;font-family:var(--ff-b);font-size:.66rem;color:#B3261E;margin-top:6px;line-height:1.5}
 [aria-invalid="true"]{border-color:#B3261E !important}
+.install-popup{
+    position:fixed;
+    inset:0;
+    background:rgba(0,0,0,.55);
+    display:none;
+    justify-content:center;
+    align-items:center;
+    z-index:999999;
+    backdrop-filter:blur(6px);
+}
+
+.install-card{
+    width:360px;
+    max-width:92%;
+    background:#fff;
+    border-radius:22px;
+    padding:28px;
+    text-align:center;
+    box-shadow:0 25px 70px rgba(0,0,0,.25);
+}
+
+.install-card img{
+    border-radius:18px;
+    margin-bottom:18px;
+}
+
+.install-card h2{
+    margin:0 0 12px;
+    color:#12181A;
+}
+
+.install-card p{
+    color:#666;
+    line-height:1.6;
+}
+
+.install-buttons{
+    margin-top:24px;
+    display:flex;
+    gap:12px;
+}
+
+.install-buttons button{
+    flex:1;
+    padding:13px;
+    border-radius:12px;
+    border:none;
+    font-weight:600;
+    cursor:pointer;
+}
+
+.install-secondary{
+    background:#EFEFEF;
+}
+
+.install-primary{
+    background:#D4AF72;
+    color:#fff;
+}
