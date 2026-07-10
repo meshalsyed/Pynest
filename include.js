@@ -99,3 +99,46 @@
     initFaqAccordions();
   });
 })();
+
+// Register Service Worker
+if ('serviceWorker' in navigator) {
+    window.addEventListener('load', () => {
+        navigator.serviceWorker.register('/service-worker.js');
+    });
+}
+
+let deferredPrompt = null;
+
+window.addEventListener('beforeinstallprompt', (e) => {
+    e.preventDefault();
+    deferredPrompt = e;
+
+    const popup = document.getElementById('installPopup');
+    if (popup) popup.style.display = 'flex';
+});
+
+window.addEventListener('appinstalled', () => {
+    const popup = document.getElementById('installPopup');
+    if (popup) popup.remove();
+});
+
+document.addEventListener('click', async (e) => {
+
+    if (e.target.id === 'installBtn') {
+
+        if (!deferredPrompt) return;
+
+        deferredPrompt.prompt();
+
+        await deferredPrompt.userChoice;
+
+        deferredPrompt = null;
+
+        document.getElementById('installPopup').style.display = 'none';
+    }
+
+    if (e.target.id === 'laterBtn') {
+        document.getElementById('installPopup').style.display = 'none';
+    }
+
+});
