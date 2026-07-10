@@ -476,6 +476,7 @@
       color: #1a1a1a;
       background: #fff;
     }
+    .bb-input:focus-visible{outline:2px solid var(--wh);outline-offset:2px;border-radius:2px}
     .logo-img {
       height: 60px;
       width: auto;
@@ -711,7 +712,7 @@
     .testi-footer{display:flex;align-items:center;gap:14px;padding-top:20px;border-top:1px solid var(--be)}
     .testi-avatar{width:44px;height:44px;border-radius:50%;object-fit:cover;border:2px solid var(--g)}
     .testi-name{font-family:var(--ff-b);font-size:.8rem;font-weight:500;color:var(--td);margin-bottom:2px}
-    .testi-loc{font-family:var(--ff-b);font-size:.62rem;color:var(--ts)}
+    .testi-loc{font-family:var(--ff-b);font-size:.62rem;color:var(--tm)}
     .testi-verified{display:inline-flex;align-items:center;gap:4px;font-family:var(--ff-b);font-size:.55rem;letter-spacing:.15em;text-transform:uppercase;color:var(--gd);margin-top:4px}
     .testi-verified svg{width:10px;height:10px;fill:currentColor}
 
@@ -850,6 +851,12 @@
     /* [A11Y] Skip-to-content link for keyboard users — visually hidden until focused */
     .skip-link{position:absolute;left:-9999px;top:auto;width:1px;height:1px;overflow:hidden}
     .skip-link:focus{position:fixed;left:16px;top:16px;width:auto;height:auto;background:var(--g);color:var(--ch);padding:12px 20px;border-radius:4px;font-family:var(--ff-b);font-size:.8rem;font-weight:600;letter-spacing:.1em;z-index:100000;text-decoration:none}
+
+    /* [A11Y] Inline form-error messaging — replaces alert() popups */
+    .field-error{display:block;font-family:var(--ff-b);font-size:.66rem;color:#B3261E;margin-top:6px;line-height:1.5}
+    [aria-invalid="true"]{border-color:#B3261E !important}
+    /* Booking bar sits on a dark, translucent glass panel — needs a light-on-dark error color */
+    .booking-bar .field-error{color:#FFB4AB}
   </style>
 
 </head>
@@ -1598,6 +1605,7 @@
           <div class="why-features">
             <a href="https://wa.me/916382186266?text=Hi%20Pynest%2C%20I'm%20interested%20in%20your%20Private%20Pool%20Villas.%20Please%20share%20more%20details."
                target="_blank"
+               rel="noopener noreferrer"
                class="why-feat reveal reveal-d1">
             
                 <div class="why-feat-icon" aria-hidden="true">🏊</div>
@@ -1610,6 +1618,7 @@
             </a>
             <a href="https://wa.me/916382186266?text=Hi%20Pynest%2C%20I'm%20interested%20in%20your%20Verified%20Luxury%20Villas.%20Please%20share%20more%20details."
                target="_blank"
+               rel="noopener noreferrer"
                class="why-feat reveal reveal-d2">
             
                 <div class="why-feat-icon" aria-hidden="true">🗝️</div>
@@ -1622,6 +1631,7 @@
             </a>
              <a href="https://wa.me/916382186266?text=Hi%20Pynest%2C%20I'm%20interested%20in%20your%20Concierge%20Services.%20Please%20share%20more%20details."
                target="_blank"
+               rel="noopener noreferrer"
                class="why-feat reveal reveal-d3">
             
                 <div class="why-feat-icon" aria-hidden="true">🍃</div>
@@ -1634,6 +1644,7 @@
             </a>
             <a href="https://wa.me/916382186266?text=Hi%20Pynest%2C%20I'm%20interested%20in%20your%20Exclusive%20Experiences.%20Please%20share%20more%20details."
                target="_blank"
+               rel="noopener noreferrer"
                class="why-feat reveal reveal-d4">
             
                 <div class="why-feat-icon" aria-hidden="true">✦</div>
@@ -2434,14 +2445,18 @@
 
     // WhatsApp Booking Bar
     function sendBookingWhatsApp(){
-      const ci = document.getElementById('bb-checkin').value;
-      const co = document.getElementById('bb-checkout').value;
-      const g  = document.getElementById('bb-guests').value;
-      const ty = document.getElementById('bb-type').value;
-      if(!ci||!co||!g||!ty){
-        alert('Please fill in all fields to check availability.');
-        return;
-      }
+      const ciEl = document.getElementById('bb-checkin');
+      const coEl = document.getElementById('bb-checkout');
+      const gEl  = document.getElementById('bb-guests');
+      const tyEl = document.getElementById('bb-type');
+      const ci = ciEl.value, co = coEl.value, g = gEl.value, ty = tyEl.value;
+      const valid = window.PynestForm.validateRequired([
+        { input: ciEl, label: 'Check-in date' },
+        { input: coEl, label: 'Check-out date' },
+        { input: gEl,  label: 'Guests' },
+        { input: tyEl, label: 'Villa type' }
+      ]);
+      if(!valid) return;
       const fmt = d => new Date(d).toLocaleDateString('en-IN',{day:'numeric',month:'long',year:'numeric'});
       const msg = `Hi Pynest! I'd like to book a luxury villa in Pondicherry.\n\n📅 Check In: ${fmt(ci)}\n📅 Check Out: ${fmt(co)}\n👥 Guests: ${g}\n🏡 Villa Type: ${ty}\n\nPlease share availability and rates. Thank you!`;
       window.open(`https://wa.me/916382186266?text=${encodeURIComponent(msg)}`,'_blank');
@@ -2590,5 +2605,6 @@
 
   <script src="/assets/js/villa-data.js"></script>
   <script src="/assets/js/wishlist.js"></script>
+  <script src="/assets/js/form-validation.js"></script>
 </body>
 </html>
