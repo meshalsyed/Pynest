@@ -129,3 +129,7 @@ footer{background:#0D1315;padding:72px 5vw 36px;border-top:1px solid rgba(212,17
 @media(prefers-reduced-motion:reduce){
   .reveal{opacity:1;transform:none;transition:none}
 }
+
+/* ─── FORM VALIDATION (accessible, inline) ─── */
+.field-error{display:block;font-family:var(--ff-b);font-size:.66rem;color:#B3261E;margin-top:6px;line-height:1.5}
+[aria-invalid="true"]{border-color:#B3261E !important}
